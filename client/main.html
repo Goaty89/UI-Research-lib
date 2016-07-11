@@ -1,0 +1,36 @@
+<head>
+    <title>courseComparison</title>
+</head>
+
+<body>
+    {{> mainLayout}}
+</body>
+
+<template name="container">
+  <p>
+    Hello!
+  </p>
+</template>
+<template name="asideContainer">
+  <div>
+    From the other side.
+
+  </div>
+</template>
+
+<template name="mainLayout">
+  <div class="{{styles.containerWrapper}}">
+    <header>
+      {{> yield "header"}}
+    </header>
+    <aside>
+      {{> yield "aside"}}
+    </aside>
+    <article>
+      {{> yield}}
+    </article>
+    <footer>
+      Footer 
+    </footer>
+  </div>
+</template>
