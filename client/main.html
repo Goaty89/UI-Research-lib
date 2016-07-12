@@ -23,14 +23,16 @@
     <header>
       {{> yield "header"}}
     </header>
-    <aside>
-      {{> yield "aside"}}
-    </aside>
-    <article>
-      {{> yield}}
-    </article>
+    <main>
+      <aside>
+        {{> yield "aside"}}
+      </aside>
+      <article>
+        {{> yield}}
+      </article>
+    </main>
     <footer>
-      Footer 
+      {{> yield "footer"}} 
     </footer>
   </div>
 </template>

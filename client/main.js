@@ -16,16 +16,19 @@ Router.configure({
 Router.route('/', function () {
   this.render('header', {to: 'header'});
   this.render('container');
-  this.render('asideContainer', {to: 'aside'});
+  this.render('asideNav', {to: 'aside'});
+  this.render('footer', {to: 'footer'});
 });
 
 Router.route('home', function () {
   this.render('header', {to: 'header'});
   this.render('home');
-  this.render('asideContainer', {to: 'aside'});
+  this.render('asideNav', {to: 'aside'});
+  this.render('footer', {to: 'footer'});
 });
 Router.route('fullDetails', function () {
   this.render('header', {to: 'header'});
   this.render('fullDetails');
-  this.render('asideContainer', {to: 'aside'});
+  this.render('asideNav', {to: 'aside'});
+  this.render('footer', {to: 'footer'});
 });
