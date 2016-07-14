@@ -1,3 +1,35 @@
 .headerWrapper {
     padding: 1rem 0;
 }
+
+.topLayerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav {
+    background-color: #1c3f94;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.advWrapper {
+    background: url("http://cdn2.hubspot.net/hubfs/1915995/bg/blue-bg.png?t=1468484873016") center repeat;
+    padding: 1rem 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+.container:global {
+    padding: 0 5%;
+}

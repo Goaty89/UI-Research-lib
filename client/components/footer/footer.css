@@ -1,3 +1,27 @@
 .footerWrapper {
     padding-top: 1rem;
+    background: #1c3f94;
+    color: #fff;
+}
+
+.row1 {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-around;
+}
+
+.row2 {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-around;
+}
+
+.row1 div,
+.row2 div {
+    flex: 1 50%;
+    text-align: center;
+}
+
+.container:global {
+    padding: 0 5%;
 }

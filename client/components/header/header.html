@@ -1,6 +1,19 @@
 <template name="header">
     <div class="{{styles.headerWrapper}}">
-        <h1> This is the header</h1>
-        <p class="{{styles.header}}"> I love html</p>
+        <div class="{{styles.topLayerContainer}} {{styles.container}}">
+            <img src="/images/logo.png" alt="Jobstreet Education" />
+            <div> search</div>
+        </div>
+        <div class="{{styles.nav}} {{styles.container}}">
+            <nav>
+                <a href=#>Online Courses</a>
+                <a href=#>Part-Time Courses</a>
+                <a href=#>Courses by Area</a>    
+                <a href=#>Why Jobstreet Education?</a>  
+            </nav>
+        </div>
+        <div class="{{styles.advWrapper}} {{styles.container}}">
+            <h1>Title</h1>
+        </div>
     </div>
 </template>
