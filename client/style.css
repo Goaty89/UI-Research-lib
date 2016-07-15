@@ -6,7 +6,7 @@
 }
 
 body:global {
-    font-size: 21px;
+    font-size: 14px;
     line-height: 1.5;
     text-decoration: none;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -26,4 +26,10 @@ main {
 
 .container:global {
     padding: 0 5%;
+}
+
+@media screen and (min-width:600px) {
+    body {
+        font-size: 18px;
+    }
 }

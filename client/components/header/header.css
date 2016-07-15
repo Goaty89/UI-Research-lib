@@ -1,20 +1,24 @@
 .headerWrapper {
-    padding: 1rem 0;
+    padding: 1rem 0 0;
 }
 
 .topLayerContainer {
+    composes: container from "../../style.css";
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .nav {
+    composes: container from "../../style.css";
     background-color: #1c3f94;
 }
 
 nav {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    text-align: center;
 }
 
 nav a {
@@ -23,13 +27,15 @@ nav a {
 }
 
 .advWrapper {
+    composes: container from "../../style.css";
     background: url("http://cdn2.hubspot.net/hubfs/1915995/bg/blue-bg.png?t=1468484873016") center repeat;
-    padding: 1rem 0;
-    width: 100%;
     text-align: center;
     color: #fff;
 }
 
-.container:global {
-    padding: 0 5%;
+@media screen and (min-width:600px) {
+    nav {
+        flex-direction: row;
+        text-align: center;
+    }
 }

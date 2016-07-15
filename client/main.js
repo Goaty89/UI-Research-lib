@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-import styles from './stylesheets/style.css';
+import styles from './style.css';
 import './main.html';
 
 Template.mainLayout.helpers({
