@@ -2,6 +2,14 @@
     display:none;
     border-radius: 2% 2% 0 0;
 }
+
+.asideNavWrapper input,
+.asideNavWrapper select{
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .title{
   color:white;
   padding: 5px 0px 5px 0px;
@@ -11,17 +19,23 @@
   background-color: #EFEFEF;
 }
 .filterContent{
-  padding: 20px 20px 10px 20px;
+  padding: 0.6rem 1rem 0;
   color: #1E3E93;
   font-family: inherit;
   font-weight: 600;
   font-size: smaller;
+}
+.filterContent:last-child {
+    padding-bottom: 0.6rem;
 }
 .btnSearch{
     composes: color-deep-yellow from "../../style.css";
     color:#69684A;
     padding: 1em 0;
     font-weight: 600;
+}
+
+input[type="submit"].btnSearch{
     width: 100%;
 }
 

@@ -12,6 +12,11 @@ body:global {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+form{
+    margin: 0;
+    padding: 0;
+}
+
 .containerWrapper:global {
     width: 100%;
     margin: 0 auto;
