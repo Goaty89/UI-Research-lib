@@ -1,12 +1,14 @@
 .asideNavWrapper {
     display:none;
+    border: 1px solid;
+    border-radius: 2% 2% 0 0;
 }
 .title{
   color:white;
   padding: 5px 0px 5px 0px;
   font-weight: 500;
 }
-.filterMain{
+.filterMainContainer{
   background-color: #EFEFEF;
 }
 .filterContent{

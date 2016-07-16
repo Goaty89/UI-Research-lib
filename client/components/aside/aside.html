@@ -1,17 +1,70 @@
 <template name="asideNav">
     <div class="{{styles.asideNavWrapper}}">
       <div class="{{styles.title}}" align="center">Filter</div>
-      <div class="{{styles.filterMain}}">
-        <div class="{{styles.filterContent}}">UNIVERSITY/COLLEGE</div>
-        <div class="{{styles.filterContent}}">COURSE CATEGORY</div>
-        <div class="{{styles.filterContent}}">COURSE NAME</div>
-        <div class="{{styles.filterContent}}">EDUCATION LEVEL</div>
-        <div class="{{styles.filterContent}}">LOCATION - CITY NEAR YOU</div>
-        <div class="{{styles.filterContent}}">COURSE PRICE RANGE</div>
-        <div class="{{styles.filterContent}}">UNIVERSITY RATING</div>
-      </div>
-      <div class="{{styles.btnSearch}}" align="center">
-        SEARCH
-      </div>
+        <form name="filter-form" id="filter-form">
+          <div class="{{styles.filterMainContainer}}">
+              {{> CollegeFilter}}
+              {{> CategoryFilter}}
+              {{> NameFilter}}
+              {{> EduLevelFilter}}
+              {{> LocationFilter}}
+              {{> PriceFilter}}
+              {{> RatingFilter}}
+          </div>
+          <div class="{{styles.btnSearch}}" align="center">
+            <input type="submit" name="btn-submit" value="SEARCH" class="{{styles.btnSearch}}"/>
+          </div>
+        </form>
+    </div>
+</template>
+
+<template name="CollegeFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="cbxCollege">UNIVERSITY/COLLEGE</label>
+        <select name="cbxCollege" class="cbx-college">
+            <option value="MMU">Multimedia University (MMU)</option>
+            <option value="KDU">KDU University College & Colleges</option>
+            <option value="UTAR">Universiti Tunku Abdul Rahman (UTAR)</option>
+        </select>
+    </div>
+</template>
+<template name="CategoryFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="cbxCourseCategory">COURSE CATEGORY</label>
+        <select name="cbxCourseCategory" class="cbx-course-category">
+            <option value="ANY">Any</option>
+            <option value="COMPUTERSCIENCE">Computer Science</option>
+            <option value="INFORMATIONSYSTEMS">Information Systems</option>
+        </select>
+    </div>
+</template>
+<template name="NameFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="txtCourseName">COURSE NAME</label>
+        <input type="text" name="txtCourseName" />
+    </div>
+</template>
+<template name="EduLevelFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="txtEduLevel">EDUCATION LEVEL</label>
+        <input type="text" name="txtEduLevel" />
+    </div>
+</template>
+<template name="LocationFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="txtLocation">LOCATION - CITY NEAR YOU</label>
+        <input type="text" name="txtLocation" />
+    </div>
+</template>
+<template name="PriceFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="txtPrice">COURSE PRICE RANGE</label>
+        <input type="text" name="txtPrice" />
+    </div>
+</template>
+<template name="RatingFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="txtRating">UNIVERSITY RATING</label>
+        <input type="text" name="txtRating" />
     </div>
 </template>
