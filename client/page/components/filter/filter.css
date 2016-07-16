@@ -13,7 +13,7 @@
   composes: font from "../../../style.css";
   float: right;
   background-color: #EFEFEF;
-  border-radius: 25px;
+  border-radius: 10px;
   border: 1px solid #A1A1A1;
   padding: 14px;
   overflow: hidden;
