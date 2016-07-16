@@ -1,4 +1,21 @@
-.filterFontFormat{
-  composes: bottomSpacing from "../../../style.css";
-  composes: font from "../../../style.css";
+.picture{
+  min-width: 200px;
+  background-color: #DDDDDD;
+}
+.detail{
+  padding: 10px;
+  min-width: 400px;
+  background-color: #EFEFEF;
+}
+.listContainer{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+}
+.subList{
+  display: flex;
+  flex-direction: row;
+}
+.icon{
+  min-width: 30px;
 }
