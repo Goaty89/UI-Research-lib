@@ -28,6 +28,14 @@ main {
     padding: 0 5%;
 }
 
+.bottomSpacing{
+  margin-bottom: 10px;
+}
+.font{
+  color:#797979;
+  font-size: large;
+  font-weight: lighter;
+}
 
 .locationBody{
     font-family: 'Roboto-Light', sans-serif;

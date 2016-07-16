@@ -1,0 +1,21 @@
+.filterFontFormat{
+  composes: bottomSpacing from "../../../style.css";
+  composes: font from "../../../style.css";
+  overflow: hidden;
+}
+.btnDelete{
+  cursor: pointer;
+  text-decoration: none;
+  color: #797979;
+  padding-left: 10px;
+}
+.item{
+  composes: font from "../../../style.css";
+  float: right;
+  background-color: #EFEFEF;
+  border-radius: 25px;
+  border: 1px solid #A1A1A1;
+  padding: 14px;
+  overflow: hidden;
+  margin-left: 10px;
+}

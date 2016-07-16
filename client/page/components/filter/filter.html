@@ -1,5 +1,8 @@
 <template name="filter">
-    <h1>
-        I am filter
-    </h1>
+    <div class="{{styles.filterFontFormat}}">Filtered by:
+      {{#each listFilter}}
+            <div class="{{styles.item}}">{{itemName}} <a href="#" class="{{styles.btnDelete}}" id="btnDelete">x</a></div>
+      {{/each}}
+    </div>
+
 </template>
