@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-import styles from './style.css';
+import styles from '../style.css';
 import './main.html';
 
 Template.mainLayout.helpers({
@@ -15,7 +15,7 @@ Router.configure({
 
 Router.route('/', function () {
   this.render('header', {to: 'header'});
-  this.render('container');
+  this.render('page');
   this.render('asideNav', {to: 'aside'});
   this.render('footer', {to: 'footer'});
 });
