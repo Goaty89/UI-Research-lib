@@ -32,7 +32,7 @@ nav {
 nav a {
     text-decoration: none;
     color: #fff;
-    padding-left: 70px;
+    padding: 0.9em 0;
 }
 
 .advWrapper {
@@ -46,5 +46,10 @@ nav a {
     nav {
         flex-direction: row;
         text-align: center;
+    }
+
+    nav a:not(:last-child):after {
+        content: "";
+        padding: 0 1rem;
     }
 }
