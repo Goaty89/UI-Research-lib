@@ -1,6 +1,5 @@
 .asideNavWrapper {
     display:none;
-    border: 1px solid;
     border-radius: 2% 2% 0 0;
 }
 .title{
@@ -19,16 +18,18 @@
   font-size: smaller;
 }
 .btnSearch{
-  color:#69684A;
-  background-color: #FEF200;
-  padding: 10px 0px 10px 0px;
-  font-weight: 600;
+    composes: color-deep-yellow from "../../style.css";
+    color:#69684A;
+    padding: 1em 0;
+    font-weight: 600;
+    width: 100%;
 }
+
 @media screen and (min-width:850px) {
     .asideNavWrapper {
+        composes: color-deep-blue from "../../style.css";
         width: 300px;
         color: blue;
-        /*background-color: #5577ff;*/
         background-color: #1c3f94;
         margin: 0px 0px 20px 0px;
         display:inline-block;

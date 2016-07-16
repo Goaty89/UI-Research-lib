@@ -47,7 +47,6 @@ main {
 }
 
 .btn-green{
-
     color: #fff;
     background-color: #56a800;
     border-color: #56a800;
@@ -68,6 +67,16 @@ main {
     color: #000000;
     border-radius: 10px;
 }
+
+/*Color*/
+.color-deep-blue{
+    background-color: #1c3f94;
+}
+
+.color-deep-yellow{
+    background-color: #FEF200;
+}
+
 
 @media screen and (min-width:600px) {
     body {
