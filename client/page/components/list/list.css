@@ -5,17 +5,31 @@
 .detail{
   padding: 10px;
   min-width: 400px;
+  max-width: 600px;
+  width: 100%;
   background-color: #EFEFEF;
 }
 .listContainer{
   display: flex;
   flex-direction: row;
-  padding-bottom: 10px;
+  composes: bottomSpacing from "../../../style.css";
 }
 .subList{
   display: flex;
   flex-direction: row;
 }
 .icon{
-  min-width: 30px;
+  min-width: 40px;
+}
+.courseName{
+  color: #1A4093;
+  font-size: larger;
+  font-weight: 600;
+}
+.displayLabel{
+  composes: font from "../../../style.css";
+}
+.rating
+{
+  composes: bottomSpacing from "../../../style.css";
 }

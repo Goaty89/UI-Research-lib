@@ -45,3 +45,23 @@ Template.list.helpers({
         return courseList;
     }
 });
+
+
+Template.list.events({
+  'click #btnCompare':function(evt, res)
+  {
+    evt.preventDefault();
+    var Item = $(evt.currentTarget.childNodes[0]);
+    if(Item.hasClass("fa-check-circle-o")){
+      Item.removeClass("fa-check-circle-o");
+      Item.addClass("fa-check-circle");
+      Item.css( "color", "#4EB947");
+    }
+    else {
+      Item.removeClass("fa-check-circle");
+      Item.addClass("fa-check-circle-o");
+      Item.css( "color", "#8A8A8A");
+    }
+    console.log(Item);
+  }
+});
