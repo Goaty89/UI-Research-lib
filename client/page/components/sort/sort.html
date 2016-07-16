@@ -1,5 +1,9 @@
 <template name="sort">
-    <h1>
-        I am sort
-    </h1>
+    <div class="{{styles.sortFontFormat}}">Sort by:
+      <select class="{{style.sortDropDown}}" name="fromMonth" >
+			  {{#each sortLists}}
+				<option value="{{value}}">{{text}}</option>
+			  {{/each}}
+			</select>
+    </div>
 </template>

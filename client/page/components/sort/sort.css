@@ -1,0 +1,7 @@
+.sortFontFormat{
+  composes: bottomSpacing from "../../../style.css";
+  composes: font from "../../../style.css";
+}
+.sortDropDown{
+  composes: fieldText from "../../../style.css";
+}

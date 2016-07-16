@@ -1,0 +1,4 @@
+.filterFontFormat{
+  composes: bottomSpacing from "../../../style.css";
+  composes: font from "../../../style.css";
+}
