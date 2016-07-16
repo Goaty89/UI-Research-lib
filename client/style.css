@@ -28,6 +28,34 @@ main {
     padding: 0 5%;
 }
 
+
+.locationBody{
+    font-family: 'Roboto-Light', sans-serif;
+    font-size: 21px;
+}
+
+.btn{
+    border-radius: 2px;
+}
+
+.btn-green{
+
+    color: #fff;
+    background-color: #56a800;
+    border-color: #56a800;
+}
+
+.btn-green:hover,.btn-green:focus{
+
+    color: #fff;
+    background-color: #40740a;
+    border-color: #40740a;
+}
+
+.redirect-to-add{
+  margin-right: 1rem;
+}
+
 @media screen and (min-width:600px) {
     body {
         font-size: 18px;
