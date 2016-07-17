@@ -2,11 +2,10 @@ import styles from './aside.css';
 const MAXPRICE = 1000.00;
 const MINPRICE = 0.00;
 if (Meteor.isClient) {
-
     // slider starts at 0 and 100
     Session.setDefault("slider", ["RM " + MINPRICE, "RM " + MAXPRICE]);
-    Template.PriceFilter.rendered = function() {
 
+    Template.PriceFilter.rendered = function() {
         this.$("#slider").noUiSlider({
             start: Session.get("slider"),
             step: 10, // Slider moves in increments of '10'
@@ -52,14 +51,18 @@ if (Meteor.isClient) {
     Template.asideNav.events({
         'submit #filter-form': function(e) {
             e.preventDefault();
+            var eduLvlList = [];
+            var convertToEducationLevelList = function(index, val) {
+                eduLvlList.push(val.value);
+            };
+            $('.btn-eduLvl.active').each(convertToEducationLevelList);
             this.collegeName = e.target.cbxCollege.value;
             this.courseCategory = e.target.cbxCourseCategory.value;
             this.courseName = e.target.txtCourseName.value;
-            this.eduLevel = e.target.txtEduLevel.value;
+            this.eduLevelList = eduLvlList;
             this.location = e.target.txtLocation.value;
             this.price = Session.get("slider");
             this.rating = $('#rating').data('userrating');
-
 
             console.log(this);
         }
@@ -68,5 +71,32 @@ if (Meteor.isClient) {
     Template.asideNav.onRendered(function() {
         //debugger
 
+    });
+
+    Template.EduLevelFilter.helpers({
+        buttonGroup: function() {
+            var educationLevelList = [{
+                title: "PHD"
+            }, {
+                title: "Masters"
+            }, {
+                title: "Bachelor"
+            }, {
+                title: "Diploma"
+            }, {
+                title: "Foundation"
+            }];
+
+            return educationLevelList;
+        }
+    });
+
+    Template.EduLevelFilter.events({
+        "click .btn-eduLvl": function(e) {
+            e.preventDefault();
+            e.target.classList.toggle("active");
+            var currentEduLvl = e.target.id.toLowerCase();
+
+        }
     });
 }

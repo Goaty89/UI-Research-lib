@@ -12,7 +12,7 @@
               {{> RatingFilter}}
           </div>
           <div class="" align="center">
-            <input type="submit" name="btn-submit" value="SEARCH" class="{{styles.btnSearch}}"/>
+            <input type="submit" id="filter-form-submit" name="btn-submit" value="SEARCH" class="{{styles.btnSearch}}"/>
           </div>
         </form>
     </div>
@@ -46,8 +46,14 @@
 </template>
 <template name="EduLevelFilter">
     <div class="{{styles.filterContent}}">
-        <label for="txtEduLevel">EDUCATION LEVEL</label>
-        <input type="text" name="txtEduLevel" />
+        <label for="buttonGroupEduLvl">EDUCATION LEVEL</label>
+        {{#with buttonGroup}}
+            <div class="{{styles.buttonGroupEduLvl}}">
+                {{#each buttonGroup}}
+                    <button id="{{title}}" class="btn btn-eduLvl" value="{{title}}">{{title}}</button>
+                {{/each}}
+            </div>
+        {{/with}}
     </div>
 </template>
 <template name="LocationFilter">
