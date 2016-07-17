@@ -58,13 +58,14 @@
 </template>
 <template name="PriceFilter">
     <div class="{{styles.filterContent}}">
-        <label for="txtPrice">COURSE PRICE RANGE</label>
-        <input type="text" name="txtPrice" />
+        <label for="slider">COURSE PRICE RANGE</label>
+        <div id="slider"></div>
+         <p>Min: {{slider.[0]}}, Max: {{slider.[1]}}</p>
     </div>
 </template>
 <template name="RatingFilter">
     <div class="{{styles.filterContent}}">
-        <label for="txtRating">UNIVERSITY RATING</label>
-        <input type="text" name="txtRating" />
+        <label for="ratingStar">UNIVERSITY RATING</label>
+        {{> starsRating id='rating' size=50 class='ratingStar' mutable=true}}
     </div>
 </template>

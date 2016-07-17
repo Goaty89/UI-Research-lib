@@ -3,6 +3,7 @@ autopublish@1.0.7
 autoupdate@1.2.10
 babel-compiler@6.8.3
 babel-runtime@0.1.9_1
+barbatus:stars-rating@1.0.7
 base64@1.0.9
 binary-heap@1.0.9
 blaze@2.1.8
@@ -43,6 +44,7 @@ iron:router@1.0.13
 iron:url@1.0.11
 jquery@1.11.9
 launch-screen@1.0.12
+less@2.6.3_1
 livedata@1.0.18
 logging@1.0.13_1
 meteor@1.1.15_1
@@ -64,12 +66,14 @@ ordered-dict@1.0.8
 promise@0.7.2_1
 ramda:ramda@0.19.0
 random@1.0.10
+rcy:nouislider@7.0.7_2
 reactive-dict@1.1.8
 reactive-var@1.0.10
 reload@1.1.10
 retry@1.0.8
 routepolicy@1.0.11
 sacha:spin@2.3.1
+session@1.1.6
 spacebars@1.0.12
 spacebars-compiler@1.0.12
 standard-minifier-css@1.0.7_1
