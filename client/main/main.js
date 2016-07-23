@@ -29,6 +29,10 @@ Router.route('home', function () {
 Router.route('fullDetails', function () {
   this.render('header', {to: 'header'});
   this.render('fullDetails');
-  this.render('asideNav', {to: 'aside'});
+  this.render('footer', {to: 'footer'});
+});
+Router.route('adminDetailPage', function () {
+  this.render('header', {to: 'header'});
+  this.render('adminDetailPage');
   this.render('footer', {to: 'footer'});
 });

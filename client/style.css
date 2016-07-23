@@ -28,7 +28,9 @@ main {
     flex: auto;
     padding: 20px 5% 20px 5%;
 }
-
+article{
+  width: 100%;
+}
 .container:global {
     padding: 0 5%;
 }

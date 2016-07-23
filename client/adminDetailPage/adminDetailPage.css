@@ -1,0 +1,25 @@
+.trGlance{
+  display: flex;
+  flex-direction: row;
+  background-color: #E3E3E3;
+}
+.trAltGlance{
+  display: flex;
+  flex-direction: row;
+  border: 1px;
+}
+.tdGlanceLabel{
+  padding:2px 10px;
+  font-weight: bold;
+  max-width: 250px;
+  min-width: 150px;
+}
+.tdGlanceText{
+  padding:2px 10px;
+  width: inherit;
+}
+.headTitle{
+  font-size: 20px;
+  color: #1c3f94;
+  font-weight: 500;
+}
