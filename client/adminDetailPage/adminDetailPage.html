@@ -2,15 +2,15 @@
     <h1>
         Admin Detail Page
     </h1>
-    <div class="{{style.divContainer}}">
+    <div class="{{styles.divContainer}}">
       <div class="{{styles.headTitle}}">The Course</div>
-      <div>
-        <textarea rows="4" name="txtCourse">
+      <div >
+        <textarea rows="4" name="txtCourse" >
           At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
         </textarea>
       </div>
     </div>
-    <div class="{{style.divContainer}}">
+    <div class="{{styles.divContainer}}">
       <div class="{{styles.headTitle}}">At a Glance</div>
       <div class="{{styles.trGlance}}">
         <div class="{{styles.tdGlanceLabel}}">
@@ -66,6 +66,78 @@
         </div>
         <div class="{{styles.tdGlanceText}}">
           <input type="text" name="txtIntake"/>
+        </div>
+      </div>
+    </div>
+    <div class="{{styles.divContainer}}">
+      <div class="{{styles.headTitle}}">Key Topics</div>
+      <div>
+        {{#each keyTopicLists}}
+        <div class="{{styles.divContainerRow}}">
+          <div class="{{styles.divListItem}}"><li>{{text}}</li></div>
+          <div class="{{styles.divAddButton}}"><i class="fa fa-minus-square {{styles.removeButton}}" aria-hidden="true" name="btnKeyTopicRemove" id="{{id}}"></i></div>
+        </div>
+        {{/each}}
+      </div>
+      <div class="{{styles.divContainerRow}}">
+        <div><input type="text" name="txtKeyTopics" id="txtKeyTopics" size="40"/></div>
+        <div class="{{styles.divAddButton}}"><i class="fa fa-plus-square-o {{styles.addButton}}" aria-hidden="true" id="btnAddKeyTopics"></i></div>
+      </div>
+    </div>
+    <div class="{{styles.divContainer}}">
+      <div class="{{styles.headTitle}}">Career Outcomes</div>
+      <div>
+        {{#each careerOutcomesLists}}
+        <div class="{{styles.divContainerRow}}">
+          <div class="{{styles.divListItem}}"><li>{{text}}</li></div>
+          <div class="{{styles.divAddButton}}"><i class="fa fa-minus-square {{styles.removeButton}}" aria-hidden="true" name="btnCareerOutComes" id="{{id}}"></i></div>
+        </div>
+        {{/each}}
+      </div>
+      <div class="{{styles.divContainerRow}}">
+        <div><input type="text" name="txtCareerOutcomes" id="txtCareerOutcomes" size="40"/></div>
+        <div class="{{styles.divAddButton}}"><i class="fa fa-plus-square-o {{styles.addButton}}" aria-hidden="true" id="btnCareerOutcomes"></i></div>
+      </div>
+    </div>
+    <div class="{{styles.divContainer}}">
+      <div class="{{styles.headTitle}}">Pre-Requisites</div>
+      <div>
+        {{#each preRequisitesLists}}
+        <div class="{{styles.divContainerRow}}">
+          <div class="{{styles.divListItem}}"><li>{{text}}</li></div>
+          <div class="{{styles.divAddButton}}"><i class="fa fa-minus-square {{styles.removeButton}}" aria-hidden="true" name="btnPreRequisites" id="{{id}}"></i></div>
+        </div>
+        {{/each}}
+      </div>
+      <div class="{{styles.divContainerRow}}">
+        <div><input type="text" name="txtPreRequisites" id="txtPreRequisites" size="40"/></div>
+        <div class="{{styles.divAddButton}}"><i class="fa fa-plus-square-o {{styles.addButton}}" aria-hidden="true" id="btnPreRequisites"></i></div>
+      </div>
+    </div>
+    <div class="{{styles.divContainer}}">
+      <div class="{{styles.headTitle}}">Our Partner for this course</div>
+      <div class="{{styles.trGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Partner Image Url
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          <input type="text" name="txtPartnerImageUrl"/>
+        </div>
+      </div>
+      <div class="{{styles.trGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Partner Name
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          <input type="text" name="txtPartnerName"/>
+        </div>
+      </div>
+      <div class="{{styles.trGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Partner Description
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          <input type="text" name="txtPartnerDescription"/>
         </div>
       </div>
     </div>
