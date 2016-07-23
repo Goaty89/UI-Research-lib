@@ -3,7 +3,7 @@
       <div class="{{styles.title}}" align="center">Filter</div>
         <form name="filter-form" id="filter-form">
           <div class="{{styles.filterMainContainer}}">
-              {{> CollegeFilter}}
+              {{> ProviderFilter}}
               {{> CategoryFilter}}
               {{> NameFilter}}
               {{> QualificationFilter}}
@@ -29,7 +29,7 @@
         {{#with buttonGroup}}
             <div class="{{styles.buttonGroup}}">
                 {{#each buttonGroup}}
-                    <button id="{{title}}" class="btn btn-studyMode" value="{{title}}">{{title}}</button>
+                    <button id="{{key}}" class="btn btn-studyMode" value="{{key}}">{{label}}</button>
                 {{/each}}
             </div>
         {{/with}}
@@ -41,7 +41,7 @@
         <select name="cbxIntakeMonth" class="cbx-intake-month">
             {{#with intakeMonthList}}
                 {{#each intakeMonthList}}
-                    <option value="{{monthId}}">{{monthText}}</option>
+                    <option value="{{key}}">{{label}}</option>
                 {{/each}}
             {{/with}}
         </select>
@@ -53,19 +53,21 @@
         {{#with buttonGroup}}
             <div class="{{styles.buttonGroup}}">
                 {{#each buttonGroup}}
-                    <button id="{{title}}" class="btn btn-deliveryMode {{styles.btnDeliveryMode}}" value="{{title}}">{{title}}</button>
+                    <button id="{{key}}" class="btn btn-deliveryMode {{styles.btnDeliveryMode}}" value="{{key}}">{{label}}</button>
                 {{/each}}
             </div>
         {{/with}}
     </div>
 </template>
-<template name="CollegeFilter">
+<template name="ProviderFilter">
     <div class="{{styles.filterContent}}">
         <label for="cbxCollege">PROVIDER</label>
         <select name="cbxCollege" class="cbx-college">
-            <option value="MMU">Multimedia University (MMU)</option>
-            <option value="KDU">KDU University College & Colleges</option>
-            <option value="UTAR">Universiti Tunku Abdul Rahman (UTAR)</option>
+            {{#with List}}
+                {{#each List}}
+                    <option value="{{key}}">{{label}}</option>
+                {{/each}}
+            {{/with}}
         </select>
     </div>
 </template>
@@ -73,9 +75,11 @@
     <div class="{{styles.filterContent}}">
         <label for="cbxCourseCategory">COURSE CATEGORY</label>
         <select name="cbxCourseCategory" class="cbx-course-category">
-            <option value="ANY">Any</option>
-            <option value="COMPUTERSCIENCE">Computer Science</option>
-            <option value="INFORMATIONSYSTEMS">Information Systems</option>
+            {{#with List}}
+                {{#each List}}
+                    <option value="{{key}}">{{label}}</option>
+                {{/each}}
+            {{/with}}
         </select>
     </div>
 </template>
@@ -91,7 +95,7 @@
         {{#with buttonGroup}}
             <div class="{{styles.buttonGroup}}">
                 {{#each buttonGroup}}
-                    <button id="{{title}}" class="btn btn-eduLvl" value="{{title}}">{{title}}</button>
+                    <button id="{{key}}" class="btn btn-eduLvl" value="{{key}}">{{label}}</button>
                 {{/each}}
             </div>
         {{/with}}

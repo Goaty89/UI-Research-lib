@@ -1,4 +1,5 @@
 import styles from './aside.css';
+import { MONTH_LIST, QUALIFICATION_LIST, DELIVERY_MODE_LIST, STUDY_MODE_LIST, PROVIDER_LIST, CATEGORY_LIST } from '../constants/FormData';
 
 const DEFAULTMINMONTHS = 1;
 const DEFAULTMAXMONTHS = 5;
@@ -78,29 +79,9 @@ if (Meteor.isClient) {
         }
     });
 
-    Template.asideNav.onRendered(function() {
-        //debugger
-
-    });
-
     Template.QualificationFilter.helpers({
         buttonGroup: function() {
-            var educationLevelList = [{
-                title: "Certificate"
-            }, {
-                title: "PHD"
-            }, {
-                title: "Masters"
-            }, {
-                title: "Diploma"
-            }, {
-                title: "Foundation"
-            },{
-                title: "Bachelor"
-            }
-            ];
-
-            return educationLevelList;
+            return QUALIFICATION_LIST;
         }
     });
 
@@ -114,13 +95,7 @@ if (Meteor.isClient) {
     });
     Template.StudyModeFilter.helpers({
         buttonGroup: function() {
-            var educationLevelList = [{
-                title: "Full Time"
-            }, {
-                title: "Part Time"
-            }];
-
-            return educationLevelList;
+            return STUDY_MODE_LIST;
         }
     });
 
@@ -135,17 +110,7 @@ if (Meteor.isClient) {
 
     Template.DeliveryModeFilter.helpers({
         buttonGroup: function() {
-            var List = [{
-                title: "Online"
-            }, {
-                title: "Lecturer"
-            }, {
-                title: "Collaborating"
-            }, {
-                title: "Self-Paced"
-            }];
-
-            return List;
+            return DELIVERY_MODE_LIST;
         }
     });
     Template.DeliveryModeFilter.events({
@@ -165,48 +130,19 @@ if (Meteor.isClient) {
     
     Template.IntakeMonthsFilter.helpers({
         intakeMonthList: function (){
-            const MONTH_LIST = [
-                {
-                    "monthId": "jan",
-                    "monthText": "January"
-                },{
-                    "monthId": "feb",
-                    "monthText": "February"
-                },{
-                    "monthId": "mar",
-                    "monthText": "March"
-                },{
-                    "monthId": "apr",
-                    "monthText": "April"
-                },{
-                    "monthId": "may",
-                    "monthText": "May"
-                },{
-                    "monthId": "jun",
-                    "monthText": "June"
-                },{
-                    "monthId": "jul",
-                    "monthText": "July"
-                },{
-                    "monthId": "aug",
-                    "monthText": "August"
-                },{
-                    "monthId": "sep",
-                    "monthText": "September"
-                },{
-                    "monthId": "oct",
-                    "monthText": "Octorber"
-                },{
-                    "monthId": "nov",
-                    "monthText": "November"
-                },{
-                    "monthId": "dec",
-                    "monthText": "December"
-                }
-
-            ];
             return MONTH_LIST;
-            console.log(MONTH_LIST);
+        }
+    })
+
+    Template.ProviderFilter.helpers({
+        List: function () {
+            return PROVIDER_LIST;
+        }
+    })
+
+    Template.CategoryFilter.helpers({
+        List: function () {
+            return CATEGORY_LIST;
         }
     })
 }
