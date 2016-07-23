@@ -52,15 +52,19 @@ input[type="submit"].btnSearch {
         margin: 0px 0px 20px 0px;
         display: inline-block;
     }
-    .buttonGroupEduLvl {
+    .buttonGroup {
         display: flex;
         flex-wrap: wrap;
     }
-    .buttonGroupEduLvl button:nth-child(3n+1) {
-        margin-left: 0px;
-    }
-    .buttonGroupEduLvl button {
+    .buttonGroup button.btnDeliveryMode {
         margin: 5px 0px 5px 5%;
-        padding: .5rem 1rem;
+        padding: .5rem .5rem;
+    }
+    .buttonGroup button {
+        margin: 5px 0px 5px 5%;
+        padding: .5rem .5rem;
+    }
+    .buttonGroup button:nth-child(3n+1) {
+        margin-left: 0px;
     }
 }

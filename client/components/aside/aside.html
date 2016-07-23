@@ -6,9 +6,14 @@
               {{> CollegeFilter}}
               {{> CategoryFilter}}
               {{> NameFilter}}
-              {{> EduLevelFilter}}
-              {{> LocationFilter}}
-              {{> PriceFilter}}
+              {{> QualificationFilter}}
+              {{> StudyModeFilter}}
+              {{> IntakeMonthsFilter}}
+              {{> DeliveryModeFilter}}
+              {{#with showLocation}}
+                {{> LocationFilter}}
+              {{/with}}
+              {{> CourseDurationFilter}}
               {{> RatingFilter}}
           </div>
           <div class="" align="center">
@@ -18,9 +23,45 @@
     </div>
 </template>
 
+<template name="StudyModeFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="buttonGroupstudyMode">STUDY MODE</label>
+        {{#with buttonGroup}}
+            <div class="{{styles.buttonGroup}}">
+                {{#each buttonGroup}}
+                    <button id="{{title}}" class="btn btn-studyMode" value="{{title}}">{{title}}</button>
+                {{/each}}
+            </div>
+        {{/with}}
+    </div>
+</template>
+<template name="IntakeMonthsFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="txtIntakeMonth">INTAKE MONTH</label>
+        <select name="cbxIntakeMonth" class="cbx-intake-month">
+            {{#with intakeMonthList}}
+                {{#each intakeMonthList}}
+                    <option value="{{monthId}}">{{monthText}}</option>
+                {{/each}}
+            {{/with}}
+        </select>
+    </div>
+</template>
+<template name="DeliveryModeFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="cbxDeliveryMode">DELIVERY MODE</label>
+        {{#with buttonGroup}}
+            <div class="{{styles.buttonGroup}}">
+                {{#each buttonGroup}}
+                    <button id="{{title}}" class="btn btn-deliveryMode {{styles.btnDeliveryMode}}" value="{{title}}">{{title}}</button>
+                {{/each}}
+            </div>
+        {{/with}}
+    </div>
+</template>
 <template name="CollegeFilter">
     <div class="{{styles.filterContent}}">
-        <label for="cbxCollege">UNIVERSITY/COLLEGE</label>
+        <label for="cbxCollege">PROVIDER</label>
         <select name="cbxCollege" class="cbx-college">
             <option value="MMU">Multimedia University (MMU)</option>
             <option value="KDU">KDU University College & Colleges</option>
@@ -44,11 +85,11 @@
         <input type="text" name="txtCourseName" />
     </div>
 </template>
-<template name="EduLevelFilter">
+<template name="QualificationFilter">
     <div class="{{styles.filterContent}}">
-        <label for="buttonGroupEduLvl">EDUCATION LEVEL</label>
+        <label for="buttonGroupEduLvl">QUALIFICATION</label>
         {{#with buttonGroup}}
-            <div class="{{styles.buttonGroupEduLvl}}">
+            <div class="{{styles.buttonGroup}}">
                 {{#each buttonGroup}}
                     <button id="{{title}}" class="btn btn-eduLvl" value="{{title}}">{{title}}</button>
                 {{/each}}
@@ -57,16 +98,16 @@
     </div>
 </template>
 <template name="LocationFilter">
-    <div class="{{styles.filterContent}}">
+    <div class="{{styles.filterContent}} locationInput">
         <label for="txtLocation">LOCATION - CITY NEAR YOU</label>
         <input type="text" name="txtLocation" />
     </div>
 </template>
-<template name="PriceFilter">
+<template name="CourseDurationFilter">
     <div class="{{styles.filterContent}}">
-        <label for="slider">COURSE PRICE RANGE</label>
+        <label for="slider">COURSE DURATION</label>
         <div id="slider"></div>
-         <p>Min: {{slider.[0]}}, Max: {{slider.[1]}}</p>
+         <p>Less than : {{slider}}</p>
     </div>
 </template>
 <template name="RatingFilter">
