@@ -62,15 +62,17 @@ if (Meteor.isClient) {
             };
             var eduLvlList = $('.btn-eduLvl.active').each(convertToButtonActivedList);
             var studyModeList = $('.btn-studyMode.active').each(convertToButtonActivedList);
+            var deliveryModeList = $('.btn-deliveryMode.active').each(convertToButtonActivedList);
+
             this.collegeName = e.target.cbxCollege.value;
             this.courseCategory = e.target.cbxCourseCategory.value;
             this.courseName = e.target.txtCourseName.value;
             this.eduLevelList = eduLvlList;
-            this.location = e.target.txtLocation.value;
+            this.location = e.target.txtLocation ? e.target.txtLocation.value : '';
             this.courseDuration = Session.get("slider");
             this.rating = $('#rating').data('userrating');
             this.studyMode = studyModeList;
-            this.deliveryMode = e.target.cbxDeliveryMode.value;
+            this.deliveryMode = deliveryModeList;
             this.intakeMonth = e.target.cbxIntakeMonth.value;
             console.log(this);
         }
