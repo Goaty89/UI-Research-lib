@@ -16,20 +16,24 @@
 }
 .tdGlanceText{
   padding:2px 10px;
-  width: inherit;
+  width: 100%;
 }
 .headTitle{
   font-size: 20px;
   color: #1c3f94;
   font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .addButton{
   color: #50b847;
-  font-size: 33px;
+  font-size: 28px;
+  cursor: pointer;
 }
 .removeButton{
   color: red;
-  font-size: 33px;
+  font-size: 28px;
+  cursor: pointer;
 }
 .divContainerRow{
   display: flex;
@@ -43,6 +47,28 @@
   width: auto;
   max-width: 500px;
   min-width: 350px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.multipleAddInput{
+  width: auto;
+  max-width: 500px;
+  min-width: 350px;
+}
+.glanceInput{
+  width: 100%;
+  margin-top: 10px;
+  max-width: 500px;
+  min-width: 200px;
+}
+textarea{
+  width: 100%;
+}
+.tdRadioButton{
+  margin-left: 10px;
+  width: 160px;
+}
+.divFlexWrap{
   display: flex;
   flex-wrap: wrap;
 }

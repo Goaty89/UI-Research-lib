@@ -2,6 +2,54 @@ import styles from './adminDetailPage.css';
 
 Template.adminDetailPage.helpers({
     styles: styles,
+    studyModeLists:function()
+    {
+      var ls = [
+        {text:"Full Time",value:"FT"},
+        {text:"Part Time",value:"PT"},
+        {text:"Self-Paced",value: "SP"}
+      ];
+      return ls;
+    },
+    deliveryModeLists:function()
+    {
+      var ls = [
+        {text:"Online",value:"O"},
+        {text:"Lecture",value:"L"},
+        {text:"Collaborating",value: "C"}
+      ];
+      return ls;
+    },
+    monthLists:function()
+    {
+      var ls = [
+        {text:"January",value:"1"},
+        {text:"February",value:"2"},
+        {text:"March",value: "3"},
+        {text:"April",value:"4"},
+        {text:"May",value:"5"},
+        {text:"June",value: "6"},
+        {text:"July",value:"7"},
+        {text:"August",value:"8"},
+        {text:"September",value: "9"},
+        {text:"October",value:"10"},
+        {text:"November",value:"11"},
+        {text:"December",value: "12"}
+      ];
+      return ls;
+    },
+    qualificationLevelLists:function()
+    {
+      var ls = [
+        {text:"PHD",value:"1"},
+        {text:"Masters",value:"2"},
+        {text:"Bachelor",value: "3"},
+        {text:"Diploma",value:"4"},
+        {text:"Foundation",value:"5"},
+        {text:"Certificate",value: "6"}
+      ];
+      return ls;
+    },
     keyTopicLists:function()
     {
       if(Session.get("keyTopic").length > 0 ){
@@ -41,6 +89,23 @@ Template.adminDetailPage.onRendered(function(){
 });
 
 Template.adminDetailPage.events({
+  'mouseenter .addHoverEvent':function(evt, res){
+    $(evt.currentTarget).removeClass('fa-plus-square');
+    $(evt.currentTarget).addClass('fa-plus-square-o');
+  },
+  'mouseleave .addHoverEvent':function(evt, res){
+    $(evt.currentTarget).removeClass('fa-plus-square-o');
+    $(evt.currentTarget).addClass('fa-plus-square');
+  },
+  'mouseenter .removeHoverEvent':function(evt, res){
+    $(evt.currentTarget).removeClass('fa-minus-square');
+    $(evt.currentTarget).addClass('fa-minus-square-o');
+  },
+  'mouseleave .removeHoverEvent':function(evt, res){
+    $(evt.currentTarget).removeClass('fa-minus-square-o');
+    $(evt.currentTarget).addClass('fa-minus-square');
+  },
+
   'click #btnAddKeyTopics':function(evt, res)
   {
     evt.preventDefault();
