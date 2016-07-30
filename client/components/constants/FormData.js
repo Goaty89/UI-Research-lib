@@ -1,72 +1,89 @@
 export const MONTH_LIST = [{
         "key": "jan",
-        "label": "January"
+        "label": "January",
+        "value":1
     }, {
         "key": "feb",
-        "label": "February"
+        "label": "February",
+        "value":2
     }, {
         "key": "mar",
-        "label": "March"
+        "label": "March",
+        "value":3
     }, {
         "key": "apr",
-        "label": "April"
+        "label": "April",
+        "value":4
     }, {
         "key": "may",
-        "label": "May"
+        "label": "May",
+        "value":5
     }, {
         "key": "jun",
-        "label": "June"
+        "label": "June",
+        "value":6
     }, {
         "key": "jul",
-        "label": "July"
+        "label": "July",
+        "value":7
     }, {
         "key": "aug",
-        "label": "August"
+        "label": "August",
+        "value":8
     }, {
         "key": "sep",
-        "label": "September"
+        "label": "September",
+        "value":9
     }, {
         "key": "oct",
-        "label": "Octorber"
+        "label": "Octorber",
+        "value":10
     }, {
         "key": "nov",
-        "label": "November"
+        "label": "November",
+        "value":11
     }, {
         "key": "dec",
-        "label": "December"
+        "label": "December",
+        "value":12
     }
-
 ];
 
 export const QUALIFICATION_LIST = [
-    { key: "certificate", label: "Certificate" }, 
-    { key: "PHD", label: "PHD" }, 
-    { key: "masters", label: "Masters" }, 
-    { key: "diploma", label: "Diploma" }, 
-    { key: "foundation", label: "Foundation" },
-    { key: "bachelor", label: "Bachelor" }
+    { key: "PHD", label: "PHD", score: 0 },
+    { key: "masters", label: "Masters", score: 1 },
+    { key: "bachelor", label: "Bachelor", score: 2 },
+    { key: "foundation", label: "Foundation", score: 3 },
+    { key: "diploma", label: "Diploma", score: 4 },
+    { key: "certificate", label: "Certificate", score: 5  }
 ];
 
 export const DELIVERY_MODE_LIST = [{
                 key: "online",
-                label: "Online"
+                label: "Online",
+                score: 0
             }, {
                 key: "lecturer",
-                label: "Lecturer"
+                label: "Lecturer",
+                score: 3
             }, {
                 key: "collaborating",
-                label: "Collaborating"
-            }, {
-                key: "selfpaced",
-                label: "Self-Paced"
+                label: "Collaborating",
+                score: 2
             }];
 
 export const STUDY_MODE_LIST = [{
                 key: "fulltime",
-                label: "Full Time"
+                label: "Full Time",
+                score: 1
             }, {
                 key: "parttime",
-                label: "Part Time"
+                label: "Part Time",
+                score: 0
+            }, {
+                key: "selfpaced",
+                label: "Self-Paced",
+                score: 1
             }];
 
 export const PROVIDER_LIST = [

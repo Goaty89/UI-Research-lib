@@ -2,6 +2,7 @@
     <h1>
         Admin Detail Page
     </h1>
+    <form name="course">
     <div class="{{styles.divContainer}}">
       <div class="{{styles.headTitle}}">The Course</div>
       <div >
@@ -19,7 +20,7 @@
         <div class="{{styles.tdGlanceText}}">
           <select class="{{style.qualificationLevelDropDown}}" name="fromMonth" >
     			  {{#each qualificationLevelLists}}
-    				<option value="{{value}}">{{text}}</option>
+    				<option value="{{key}}">{{label}}</option>
     			  {{/each}}
     			</select>
         </div>
@@ -48,7 +49,7 @@
           <div class="{{styles.divContainerRow}}">
             {{#each studyModeLists}}
               <div class="{{styles.tdRadioButton}}">
-                <input type="radio" name="studyMode" style="margin-top:-3px;" value="{{value}}"/> {{text}}
+                <input type="radio" name="studyMode" style="margin-top:-3px;" value="{{key}}"/> {{label}}
               </div>
             {{/each}}
           </div>
@@ -62,7 +63,7 @@
           <div class="{{styles.divContainerRow}}">
             {{#each deliveryModeLists}}
               <div class="{{styles.tdRadioButton}}">
-                <input type="checkbox" name="deliveryMode" style="margin-top:-3px;" value="{{value}}"/> {{text}}
+                <input type="checkbox" name="deliveryMode" style="margin-top:-3px;" value="{{key}}"/> {{label}}
               </div>
             {{/each}}
           </div>
@@ -92,7 +93,7 @@
           <div class="{{styles.divContainerRow}} {{styles.divFlexWrap}}">
             {{#each monthLists}}
               <div class="{{styles.tdRadioButton}}">
-                <input type="checkbox" name="deliveryMode" style="margin-top:-3px;" value="{{value}}" /> {{text}}
+                <input type="checkbox" name="deliveryMode" style="margin-top:-3px;" value="{{value}}" /> {{label}}
               </div>
             {{/each}}
           </div>
@@ -171,4 +172,8 @@
         </div>
       </div>
     </div>
+    <div class="{{styles.divContainer}}">
+      <input type="submit" value="Save"/>
+    </div>
+  </form>
 </template>

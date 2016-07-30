@@ -1,54 +1,58 @@
 import styles from './adminDetailPage.css';
+import {MONTH_LIST} from '../components/constants/FormData';
+import {DELIVERY_MODE_LIST} from '../components/constants/FormData';
+import {STUDY_MODE_LIST} from '../components/constants/FormData';
+import {QUALIFICATION_LIST} from '../components/constants/FormData';
 
 Template.adminDetailPage.helpers({
     styles: styles,
     studyModeLists:function()
     {
-      var ls = [
-        {text:"Full Time",value:"FT"},
-        {text:"Part Time",value:"PT"},
-        {text:"Self-Paced",value: "SP"}
-      ];
-      return ls;
+      // var ls = [
+      //   {text:"Full Time",value:"FT"},
+      //   {text:"Part Time",value:"PT"},
+      //   {text:"Self-Paced",value: "SP"}
+      // ];
+      return STUDY_MODE_LIST;
     },
     deliveryModeLists:function()
     {
-      var ls = [
-        {text:"Online",value:"O"},
-        {text:"Lecture",value:"L"},
-        {text:"Collaborating",value: "C"}
-      ];
-      return ls;
+      // var ls = [
+      //   {text:"Online",value:"O"},
+      //   {text:"Lecture",value:"L"},
+      //   {text:"Collaborating",value: "C"}
+      // ];
+      return DELIVERY_MODE_LIST;
     },
     monthLists:function()
     {
-      var ls = [
-        {text:"January",value:"1"},
-        {text:"February",value:"2"},
-        {text:"March",value: "3"},
-        {text:"April",value:"4"},
-        {text:"May",value:"5"},
-        {text:"June",value: "6"},
-        {text:"July",value:"7"},
-        {text:"August",value:"8"},
-        {text:"September",value: "9"},
-        {text:"October",value:"10"},
-        {text:"November",value:"11"},
-        {text:"December",value: "12"}
-      ];
-      return ls;
+      // var ls = [
+      //   {text:"January",value:"1"},
+      //   {text:"February",value:"2"},
+      //   {text:"March",value: "3"},
+      //   {text:"April",value:"4"},
+      //   {text:"May",value:"5"},
+      //   {text:"June",value: "6"},
+      //   {text:"July",value:"7"},
+      //   {text:"August",value:"8"},
+      //   {text:"September",value: "9"},
+      //   {text:"October",value:"10"},
+      //   {text:"November",value:"11"},
+      //   {text:"December",value: "12"}
+      // ];
+      return MONTH_LIST;
     },
     qualificationLevelLists:function()
     {
-      var ls = [
-        {text:"PHD",value:"1"},
-        {text:"Masters",value:"2"},
-        {text:"Bachelor",value: "3"},
-        {text:"Diploma",value:"4"},
-        {text:"Foundation",value:"5"},
-        {text:"Certificate",value: "6"}
-      ];
-      return ls;
+      // var ls = [
+      //   {text:"PHD",value:"1"},
+      //   {text:"Masters",value:"2"},
+      //   {text:"Bachelor",value: "3"},
+      //   {text:"Diploma",value:"4"},
+      //   {text:"Foundation",value:"5"},
+      //   {text:"Certificate",value: "6"}
+      // ];
+      return QUALIFICATION_LIST;
     },
     keyTopicLists:function()
     {
