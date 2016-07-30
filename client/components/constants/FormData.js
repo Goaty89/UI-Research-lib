@@ -70,17 +70,23 @@ export const DELIVERY_MODE_LIST = [{
             }];
 
 export const STUDY_MODE_LIST = [{
-                key: "FULL-TIME",
+                key: "FULLTIME",
                 label: "Full Time"
             }, {
-                key: "PART-TIME",
+                key: "PARTTIME",
                 label: "Part Time"
             }, {
-                key: "SELF-PACED",
+                key: "SELFPACED",
                 label: "Self-Paced"
             }];
 
 export const PROVIDER_LIST = [
+    {
+      key: "KNOWLEGE_UNIVERSE",
+      label: "Knowledge Universe",
+      imageUrl:"http://cdn2.hubspot.net/hubfs/1915995/COURSES_IMAGES/logo-knowledge-universe.png?t=1469787935817",
+      description:"Knowledge Universe was founded to meet the growing need for private higher education in Malaysia. As a member of the Raffles Education Group, Knowledge Universe offers quality education at an affordable cost. The institution provides a wide range of courses, supported by a team of highly qualified lecturers."
+    },
     {
       key: "UNITAR",
       label: "UNITAR",
@@ -145,6 +151,10 @@ export const PROVIDER_LIST = [
 
 export const CATEGORY_LIST = [
      {key: "ANY", label: "Any"},
+     {key: "BUSINESS_MANAGEMENT", label: "Business Management"},
+     {key: "FINANCE", label:"Finance"},
+     {key: "LANGUAGE", label: "Language"},
+     {key: "MANAGEMENT", label: "Management"},
      {key: "COMPUTER_SCIENCE", label: "Computer Science"},
      {key: "INFORMATON_SYSTEM", label: "Information System"}
 ];

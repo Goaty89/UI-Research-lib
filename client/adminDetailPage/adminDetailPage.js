@@ -32,6 +32,7 @@ if(Meteor.isClient)
       },
       qualificationCategoryLists:function()
       {
+        CATEGORY_LIST.shift();
         return CATEGORY_LIST;
       },
       keyTopicLists:function()
