@@ -3,56 +3,34 @@ import {MONTH_LIST} from '../components/constants/FormData';
 import {DELIVERY_MODE_LIST} from '../components/constants/FormData';
 import {STUDY_MODE_LIST} from '../components/constants/FormData';
 import {QUALIFICATION_LIST} from '../components/constants/FormData';
+import {PROVIDER_LIST} from '../components/constants/FormData';
+import {CATEGORY_LIST} from '../components/constants/FormData';
 
 Template.adminDetailPage.helpers({
     styles: styles,
     studyModeLists:function()
     {
-      // var ls = [
-      //   {text:"Full Time",value:"FT"},
-      //   {text:"Part Time",value:"PT"},
-      //   {text:"Self-Paced",value: "SP"}
-      // ];
       return STUDY_MODE_LIST;
     },
     deliveryModeLists:function()
     {
-      // var ls = [
-      //   {text:"Online",value:"O"},
-      //   {text:"Lecture",value:"L"},
-      //   {text:"Collaborating",value: "C"}
-      // ];
       return DELIVERY_MODE_LIST;
     },
     monthLists:function()
     {
-      // var ls = [
-      //   {text:"January",value:"1"},
-      //   {text:"February",value:"2"},
-      //   {text:"March",value: "3"},
-      //   {text:"April",value:"4"},
-      //   {text:"May",value:"5"},
-      //   {text:"June",value: "6"},
-      //   {text:"July",value:"7"},
-      //   {text:"August",value:"8"},
-      //   {text:"September",value: "9"},
-      //   {text:"October",value:"10"},
-      //   {text:"November",value:"11"},
-      //   {text:"December",value: "12"}
-      // ];
       return MONTH_LIST;
     },
     qualificationLevelLists:function()
     {
-      // var ls = [
-      //   {text:"PHD",value:"1"},
-      //   {text:"Masters",value:"2"},
-      //   {text:"Bachelor",value: "3"},
-      //   {text:"Diploma",value:"4"},
-      //   {text:"Foundation",value:"5"},
-      //   {text:"Certificate",value: "6"}
-      // ];
       return QUALIFICATION_LIST;
+    },
+    providerLists:function()
+    {
+      return PROVIDER_LIST;
+    },
+    qualificationCategoryLists:function()
+    {
+      return CATEGORY_LIST;
     },
     keyTopicLists:function()
     {
@@ -83,6 +61,16 @@ Template.adminDetailPage.helpers({
         return [];
       }
 
+    },
+    locationLists:function()
+    {
+      if(Session.get("location").length > 0 ){
+        return Session.get("location");
+      }
+      else {
+        return [];
+      }
+
     }
 });
 
@@ -90,6 +78,7 @@ Template.adminDetailPage.onRendered(function(){
   Session.set("preRequisites",[]);
   Session.set("keyTopic",[]);
   Session.set("careerOutcomes",[]);
+  Session.set("location",[]);
 });
 
 Template.adminDetailPage.events({
@@ -156,6 +145,21 @@ Template.adminDetailPage.events({
     }
     Item.val("");
   },
+  'click #btnAddLocation':function(evt, res)
+  {
+    evt.preventDefault();
+    var Item = $("#txtAddLocation");
+    if(Session.get("location") && Session.get("location").length > 0 )
+    {
+      var arr = Session.get("location");
+      arr.push({text:Item.val(), id : arr[(arr.length - 1)].id + 1});
+      Session.set("location",arr);
+    }
+    else {
+      Session.set("location",[{text:Item.val(),id:0}]);
+    }
+    Item.val("");
+  },
   'click [name=btnCareerOutComes]':function(evt, res)
   {
     evt.preventDefault();
@@ -195,5 +199,21 @@ Template.adminDetailPage.events({
       }
     }
     Session.set("keyTopic",output);
+  },
+  'click [name=btnRemoveLocation]':function(evt, res)
+  {
+    evt.preventDefault();
+    var arr = Session.get("location");
+    var output = [];
+    for (var i = 0, len = arr.length; i < len; i++){
+      if(arr[i].id != evt.currentTarget.id)
+      {
+        output.push(arr[i]);
+      }
+    }
+    Session.set("location",output);
+  },
+  'submit form':function(evt, res){
+    event.preventDefault();
   }
 });

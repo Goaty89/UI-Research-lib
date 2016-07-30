@@ -52,7 +52,7 @@
 }
 .multipleAddInput{
   width: auto;
-  max-width: 500px;
+  max-width: 800px;
   min-width: 350px;
 }
 .glanceInput{
@@ -60,6 +60,10 @@
   margin-top: 10px;
   max-width: 500px;
   min-width: 200px;
+}
+.weekInput{
+  margin-top: 10px;
+  max-width: 100px;
 }
 textarea{
   width: 100%;
@@ -71,4 +75,10 @@ textarea{
 .divFlexWrap{
   display: flex;
   flex-wrap: wrap;
+}
+.qualificationLevelDropDown{
+  width: 75%;
+}
+.leftMargin{
+  margin-left: 20px;
 }

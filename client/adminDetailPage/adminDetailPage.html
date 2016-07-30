@@ -6,26 +6,24 @@
     <div class="{{styles.divContainer}}">
       <div class="{{styles.headTitle}}">The Course</div>
       <div >
-        <textarea rows="4" name="txtCourse">
-          At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
-        </textarea>
+        <textarea rows="4" name="txtCourse">At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.</textarea>
       </div>
     </div>
     <div class="{{styles.divContainer}}">
       <div class="{{styles.headTitle}}">At a Glance</div>
-      <div class="{{styles.trAltGlance}}">
+      <div class="{{styles.trGlance}}">
         <div class="{{styles.tdGlanceLabel}}">
           Qualification Level
         </div>
         <div class="{{styles.tdGlanceText}}">
-          <select class="{{style.qualificationLevelDropDown}}" name="fromMonth" >
+          <select class="{{styles.qualificationLevelDropDown}}" name="qualificationLevel" >
     			  {{#each qualificationLevelLists}}
-    				<option value="{{key}}">{{label}}</option>
+    				    <option value="{{key}}">{{label}}</option>
     			  {{/each}}
     			</select>
         </div>
       </div>
-      <div class="{{styles.trGlance}}">
+      <div class="{{styles.trAltGlance}}">
         <div class="{{styles.tdGlanceLabel}}">
           Qualification
         </div>
@@ -33,12 +31,28 @@
           <input type="text" name="txtQualification" class="{{styles.glanceInput}}"/>
         </div>
       </div>
+      <div class="{{styles.trGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Qualification Category
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          <select class="{{styles.qualificationLevelDropDown}}" name="qualificationCategory" >
+    			  {{#each qualificationCategoryLists}}
+    				    <option value="{{key}}">{{label}}</option>
+    			  {{/each}}
+    			</select>
+        </div>
+      </div>
       <div class="{{styles.trAltGlance}}">
         <div class="{{styles.tdGlanceLabel}}">
           Provider
         </div>
         <div class="{{styles.tdGlanceText}}">
-          <input type="text" name="txtProvider" class="{{styles.glanceInput}}"/>
+          <select class="{{styles.qualificationLevelDropDown}}" name="provider" >
+    			  {{#each providerLists}}
+    				    <option value="{{key}}">{{label}}</option>
+    			  {{/each}}
+    			</select>
         </div>
       </div>
       <div class="{{styles.trGlance}}">
@@ -74,7 +88,10 @@
           Course Duration
         </div>
         <div class="{{styles.tdGlanceText}}">
-          <input type="text" name="txtCourseDuration" class="{{styles.glanceInput}}"/>
+          <div class="{{styles.divContainerRow}}">
+            <div>Max <input type="text" name="txtMaxCourseDuration" class="{{styles.weekInput}}"/> Week;</div>
+            <div class="{{styles.leftMargin}}">Min <input type="text" name="txtMinCourseDuration" class="{{styles.weekInput}}"/> Week</div>
+          </div>
         </div>
       </div>
       <div class="{{styles.trAltGlance}}">
@@ -82,7 +99,16 @@
           Location
         </div>
         <div class="{{styles.tdGlanceText}}">
-          <input type="text" name="txtLocation" class="{{styles.glanceInput}}"/>
+          {{#each locationLists}}
+          <div class="{{styles.divContainerRow}}">
+            <div class="{{styles.divListItem}}"><li>{{text}}</li></div>
+            <div class="{{styles.divAddButton}}"><i class="fa fa-minus-square {{styles.removeButton}} removeHoverEvent" aria-hidden="true" name="btnRemoveLocation" id="{{id}}"></i></div>
+          </div>
+          {{/each}}
+          <div class="{{styles.divContainerRow}}">
+            <div><input type="text" name="txtAddLocation" id="txtAddLocation" class="{{styles.multipleAddInput}}"/></div>
+            <div class="{{styles.divAddButton}}"><i class="fa fa-plus-square {{styles.addButton}} addHoverEvent" aria-hidden="true" id="btnAddLocation"></i></div>
+          </div>
         </div>
       </div>
       <div class="{{styles.trGlance}}">

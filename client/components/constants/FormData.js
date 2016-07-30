@@ -50,40 +50,34 @@ export const MONTH_LIST = [{
 ];
 
 export const QUALIFICATION_LIST = [
-    { key: "PHD", label: "PHD", score: 0 },
-    { key: "masters", label: "Masters", score: 1 },
-    { key: "bachelor", label: "Bachelor", score: 2 },
-    { key: "foundation", label: "Foundation", score: 3 },
-    { key: "diploma", label: "Diploma", score: 4 },
-    { key: "certificate", label: "Certificate", score: 5  }
+    { key: "PHD", label: "PHD"},
+    { key: "masters", label: "Masters" },
+    { key: "bachelor", label: "Bachelor" },
+    { key: "foundation", label: "Foundation" },
+    { key: "diploma", label: "Diploma" },
+    { key: "certificate", label: "Certificate"  }
 ];
 
 export const DELIVERY_MODE_LIST = [{
                 key: "online",
-                label: "Online",
-                score: 0
+                label: "Online"
             }, {
                 key: "lecturer",
-                label: "Lecturer",
-                score: 3
+                label: "Lecturer"
             }, {
                 key: "collaborating",
-                label: "Collaborating",
-                score: 2
+                label: "Collaborating"
             }];
 
 export const STUDY_MODE_LIST = [{
                 key: "fulltime",
-                label: "Full Time",
-                score: 1
+                label: "Full Time"
             }, {
                 key: "parttime",
-                label: "Part Time",
-                score: 0
+                label: "Part Time"
             }, {
                 key: "selfpaced",
-                label: "Self-Paced",
-                score: 1
+                label: "Self-Paced"
             }];
 
 export const PROVIDER_LIST = [
@@ -98,5 +92,4 @@ export const CATEGORY_LIST = [
      {key: "any", label: "Any"},
      {key: "computerscience", label: "Computer Science"},
      {key: "informationsystem", label: "Information System"}
-
 ];
