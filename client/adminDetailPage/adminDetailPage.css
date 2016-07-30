@@ -82,3 +82,21 @@ textarea{
 .leftMargin{
   margin-left: 20px;
 }
+.imageSize{
+  width:180px;
+}
+.partnerDescription{
+  font-family: 'Raleway',Arial,Helvetica,sans serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #545454;
+  padding: 20px 0;
+  line-height: 1.6em;
+}
+.partnerLabel{
+  font-weight: 700;
+  font-size: 14px;
+  color: #545454;
+  line-height: 1.6em;
+  font-family: 'Raleway',Arial,Helvetica,sans serif;
+}

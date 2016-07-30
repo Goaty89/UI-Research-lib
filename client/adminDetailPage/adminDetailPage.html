@@ -6,7 +6,7 @@
     <div class="{{styles.divContainer}}">
       <div class="{{styles.headTitle}}">The Course</div>
       <div >
-        <textarea rows="4" name="txtCourse">At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.</textarea>
+        <textarea rows="4" name="txtCourse"></textarea>
       </div>
     </div>
     <div class="{{styles.divContainer}}">
@@ -63,7 +63,7 @@
           <div class="{{styles.divContainerRow}}">
             {{#each studyModeLists}}
               <div class="{{styles.tdRadioButton}}">
-                <input type="radio" name="studyMode" style="margin-top:-3px;" value="{{key}}"/> {{label}}
+                <input type="checkbox" name="studyMode" style="margin-top:-3px;" value="{{key}}"/> {{label}}
               </div>
             {{/each}}
           </div>
@@ -89,8 +89,8 @@
         </div>
         <div class="{{styles.tdGlanceText}}">
           <div class="{{styles.divContainerRow}}">
-            <div>Max <input type="text" name="txtMaxCourseDuration" class="{{styles.weekInput}}"/> Week;</div>
-            <div class="{{styles.leftMargin}}">Min <input type="text" name="txtMinCourseDuration" class="{{styles.weekInput}}"/> Week</div>
+            <div>Min <input type="number" name="txtMinCourseDuration" class="{{styles.weekInput}}"/> Weeks;</div>
+            <div class="{{styles.leftMargin}}">Max <input type="number" name="txtMaxCourseDuration" class="{{styles.weekInput}}"/> Weeks</div>
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@
           <div class="{{styles.divContainerRow}} {{styles.divFlexWrap}}">
             {{#each monthLists}}
               <div class="{{styles.tdRadioButton}}">
-                <input type="checkbox" name="deliveryMode" style="margin-top:-3px;" value="{{value}}" /> {{label}}
+                <input type="checkbox" name="intake" style="margin-top:-3px;" value="{{value}}" /> {{label}}
               </div>
             {{/each}}
           </div>
@@ -173,30 +173,33 @@
     </div>
     <div class="{{styles.divContainer}}">
       <div class="{{styles.headTitle}}">Our Partner for this course</div>
-      <div class="{{styles.trGlance}}">
+      <div class="{{styles.trAltGlance}}">
         <div class="{{styles.tdGlanceLabel}}">
-          Partner Image Url
+          Partner
         </div>
         <div class="{{styles.tdGlanceText}}">
-          <input type="text" name="txtPartnerImageUrl" class="{{styles.glanceInput}}"/>
+          <select class="{{styles.qualificationLevelDropDown}}" name="partner" id="dropDownPartner">
+    			  {{#each providerLists}}
+    				    <option value="{{key}}">{{label}}</option>
+    			  {{/each}}
+    			</select><i class="fa fa-plus-square {{styles.addButton}} addHoverEvent {{styles.divAddButton}}" aria-hidden="true" id="btnAddPartner"></i>
         </div>
       </div>
       <div class="{{styles.trAltGlance}}">
-        <div class="{{styles.tdGlanceLabel}}">
-          Partner Name
-        </div>
-        <div class="{{styles.tdGlanceText}}">
-          <input type="text" name="txtPartnerName" class="{{styles.glanceInput}}"/>
-        </div>
-      </div>
-      <div class="{{styles.trGlance}}">
-        <div class="{{styles.tdGlanceLabel}}">
-          Partner Description
-        </div>
-        <div class="{{styles.tdGlanceText}}">
-          <input type="text" name="txtPartnerDescription" class="{{styles.glanceInput}}"/>
+        <div>
+          {{#each partnerLists}}
+          <div class="{{styles.divContainerRow}}">
+            <div class="{{styles.divAddButton}}"><i class="fa fa-minus-square {{styles.removeButton}} removeHoverEvent" aria-hidden="true" name="btnRemovePartner" id="{{id}}"></i></div>
+            <div>
+              <div><img src="{{imageUrl}}" class="{{styles.imageSize}}"/></div>
+              <div class="{{styles.partnerLabel}}">{{label}}</div>
+              <div class="{{styles.partnerDescription}}">{{description}}</div>
+            </div>
+          </div>
+          {{/each}}
         </div>
       </div>
+
     </div>
     <div class="{{styles.divContainer}}">
       <input type="submit" value="Save"/>
