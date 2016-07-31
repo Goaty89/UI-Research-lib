@@ -61,14 +61,8 @@
 </template>
 <template name="ProviderFilter">
     <div class="{{styles.filterContent}}">
-        <label for="cbxCollege">PROVIDER</label>
-        <select name="cbxCollege" class="cbx-college">
-            {{#with List}}
-                {{#each List}}
-                    <option value="{{key}}">{{label}}</option>
-                {{/each}}
-            {{/with}}
-        </select>
+        <label for="txtCollege">PROVIDER</label>
+            <input type="text" value="" class="typeahead" name="txtCollege" />
     </div>
 </template>
 <template name="CategoryFilter">

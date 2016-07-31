@@ -1,5 +1,7 @@
 import styles from './list.css';
-import {COURSE_LIST} from '../../../components/constants/data';
+import {
+    COURSE_LIST
+} from '../../../components/constants/data';
 
 // var COURSE_LIST = [{
 //     id: "c1",
@@ -35,52 +37,67 @@ import {COURSE_LIST} from '../../../components/constants/data';
 //     maxFees: "60,000"
 // }];
 
-Template.list.created = function() {
-    Session.set("selectedCompareList", null);
-    selectedCompareList = [];
-};
+if (Meteor.isClient) {
+    Template.list.onCreated(function() {
+        Meteor.subscribe('allCourses', function() {
+            console.log(Course.find().count());
+        });
+    });
 
-Template.list.helpers({
-    styles: styles,
-    courseList: function() {
-        console.log(COURSE_LIST);
-        return COURSE_LIST;
-    }
-});
+    Template.list.created = function() {
+        Session.set("selectedCompareList", null);
+        selectedCompareList = [];
+    };
 
-Template.list.events({
-    'click #compare-link': function(evt, res) {
-        evt.preventDefault();
-        var currentId = $(evt.currentTarget).data().id;
-        if (selectedCompareList.indexOf(currentId) > -1) {
-            selectedCompareList = selectedCompareList.filter(function(selectedIds) {
-                return selectedIds != currentId
+    Template.list.helpers({
+        styles: styles,
+        courseList: function() {
+            //console.log(COURSE_LIST);
+            console.log(Course.find().fetch());
+            return Course.find().fetch();
+        },
+        setLocation: function(location) {
+            var locationString = location.map(function(obj) {
+                return obj.text
             });
-        } else {
-            selectedCompareList.push(currentId);
+            console.log(locationString);
+            return locationString.toString();
         }
-        Session.set("selectedCompareList", selectedCompareList);
-        console.log(selectedCompareList);
-        var Item = $(evt.currentTarget).find("i");
-        if (Item.hasClass("fa-check-circle-o")) {
-            Item.removeClass("fa-check-circle-o");
-            Item.addClass("fa-check-circle");
-            Item.css("color", "#4EB947");
-        } else {
-            Item.removeClass("fa-check-circle");
-            Item.addClass("fa-check-circle-o");
-            Item.css("color", "#8A8A8A");
+    });
+
+    Template.list.events({
+        'click #compare-link': function(evt, res) {
+            evt.preventDefault();
+            var currentId = $(evt.currentTarget).data().id;
+            if (selectedCompareList.indexOf(currentId) > -1) {
+                selectedCompareList = selectedCompareList.filter(function(selectedIds) {
+                    return selectedIds != currentId
+                });
+            } else {
+                selectedCompareList.push(currentId);
+            }
+            Session.set("selectedCompareList", selectedCompareList);
+            console.log(selectedCompareList);
+            var Item = $(evt.currentTarget).find("i");
+            if (Item.hasClass("fa-check-circle-o")) {
+                Item.removeClass("fa-check-circle-o");
+                Item.addClass("fa-check-circle");
+                Item.css("color", "#4EB947");
+            } else {
+                Item.removeClass("fa-check-circle");
+                Item.addClass("fa-check-circle-o");
+                Item.css("color", "#8A8A8A");
+            }
+            //console.log(Item);
         }
-        //console.log(Item);
-    }
-});
+    });
 
-Template.btnCompare.events({
-    "click #btnCompare": function(evt, res) {
-        Router.go('courseComparison');
-    }
-});
-
+    Template.btnCompare.events({
+        "click #btnCompare": function(evt, res) {
+            Router.go('courseComparison');
+        }
+    });
+}
 
 if (Meteor.isServer) {
 

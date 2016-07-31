@@ -1,5 +1,12 @@
 import styles from './aside.css';
-import { MONTH_LIST, QUALIFICATION_LIST, DELIVERY_MODE_LIST, STUDY_MODE_LIST, PROVIDER_LIST, CATEGORY_LIST } from '../constants/FormData';
+import {
+    MONTH_LIST,
+    QUALIFICATION_LIST,
+    DELIVERY_MODE_LIST,
+    STUDY_MODE_LIST,
+    PROVIDER_LIST,
+    CATEGORY_LIST
+} from '../constants/FormData';
 
 const DEFAULTMINMONTHS = 1;
 const DEFAULTMAXMONTHS = 5;
@@ -8,12 +15,12 @@ if (Meteor.isClient) {
     // slider starts at 0 and 100
     Session.setDefault("slider", DEFAULTMINMONTHS);
     Session.setDefault("showLocation", true);
-    
+
     Template.CourseDurationFilter.rendered = function() {
         this.$("#slider").noUiSlider({
             start: DEFAULTMINMONTHS,
             step: 1, // Slider moves in increments of '10'
-           // margin: 20, // Handles must be more than '20' apart
+            // margin: 20, // Handles must be more than '20' apart
             behaviour: 'tap-drag', // Move handle on tap, bar is draggable
             tooltips: true,
             connect: "lower",
@@ -65,7 +72,8 @@ if (Meteor.isClient) {
             var studyModeList = $('.btn-studyMode.active').each(convertToButtonActivedList);
             var deliveryModeList = $('.btn-deliveryMode.active').each(convertToButtonActivedList);
 
-            this.collegeName = e.target.cbxCollege.value;
+
+            this.collegeName = $(".typeahead[name='txtCollege']").tagsinput('items');
             this.courseCategory = e.target.cbxCourseCategory.value;
             this.courseName = e.target.txtCourseName.value;
             this.eduLevelList = eduLvlList;
@@ -120,28 +128,47 @@ if (Meteor.isClient) {
             var current = e.target.id.toLowerCase();
             Session.set('showLocation', true);
 
-            if(current === "online" &&
-              e.target.classList.contains("active") &&
-              e.target.parentElement.querySelectorAll(".active").length === 1){
+            if (current === "online" &&
+                e.target.classList.contains("active") &&
+                e.target.parentElement.querySelectorAll(".active").length === 1) {
                 Session.set('showLocation', false);
             }
         }
     })
-    
+
     Template.IntakeMonthsFilter.helpers({
-        intakeMonthList: function (){
+        intakeMonthList: function() {
             return MONTH_LIST;
         }
     })
 
-    Template.ProviderFilter.helpers({
-        List: function () {
-            return PROVIDER_LIST;
-        }
-    })
+    // Template.ProviderFilter.helpers({
+    //     List: function() {
+    //         return PROVIDER_LIST;
+    //     }
+
+    // })
+
+    Template.ProviderFilter.rendered = function() {
+        var college = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('key'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local: PROVIDER_LIST
+        });
+        college.initialize();
+
+        $('.typeahead').tagsinput({
+            typeaheadjs: {
+                name: 'collegeName',
+                displayKey: 'label',
+                valueKey: 'key',
+                source: college.ttAdapter()
+            }
+        });
+    }
 
     Template.CategoryFilter.helpers({
-        List: function () {
+        List: function() {
             return CATEGORY_LIST;
         }
     })

@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { Meteor  } from 'meteor/meteor';
 import { ReactiveVar } from 'meteor/reactive-var';
 import styles from '../style.css';
 import './main.html';
@@ -42,3 +43,4 @@ Router.route('courseComparison', function () {
   this.render('asideNav', {to: 'aside'});
   this.render('footer', {to: 'footer'});
 });
+
