@@ -1,0 +1,10 @@
+.cardContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around
+}
+
+.card {
+    width: 30%;
+    border: 1px #ccc solid;
+}

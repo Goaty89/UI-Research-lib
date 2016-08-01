@@ -4,10 +4,12 @@
 </template>
 
 <template name="cardContainer">
-    <div class="cardContainer">
-        {{#with course}}
-        Course Name: {{course.name}}
-        Course Provided by: {{course.provider}}
-        {{/with}} 
+    <div class="{{styles.cardContainer}}">
+        {{#each courseList}}
+            <div class="{{styles.card}}" id={{_id}}>
+                Course Name: {{course}}
+                Course Provided by: {{provider}}
+            </div>
+        {{/each}} 
     </div>
 </template>
