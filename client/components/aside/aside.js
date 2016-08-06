@@ -172,4 +172,27 @@ if (Meteor.isClient) {
             return CATEGORY_LIST;
         }
     })
+
+    Template.filteredList.helpers({
+        styles: styles,
+        listFilter: function() {
+            var lsFilter = [{
+                itemName: "Business Management"
+            }, {
+                itemName: "Sunway College"
+            }, {
+                itemName: "MMU"
+            }];
+            return lsFilter;
+        }
+    });
+
+    Template.filteredList.events({
+        'click #btnDelete': function(evt, res) {
+            evt.preventDefault();
+            var Item = evt.currentTarget.parentNode;
+            var Parent = Item.parentNode;
+            Parent.removeChild(Item);
+        }
+    });
 }
