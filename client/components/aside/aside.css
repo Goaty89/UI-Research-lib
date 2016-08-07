@@ -147,11 +147,11 @@ input[type="submit"].btnSearch {
     font-size: 30px;
     box-shadow: inset 0 4px #ccc;
     text-align: center;
+    color: #ccc;
 }
 
 .tabs label {
     display: block;
-    color: #ccc;
     font-weight: normal;
     text-decoration: none;
     line-height: 2;
