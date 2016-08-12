@@ -1,19 +1,28 @@
 .picture {
-    min-width: 200px;
+    max-width: 250px;
     background-color: #DDDDDD;
+}
+.pictureSize{
+  max-width: 250px;
+  max-height: 250px;
+  vertical-align: center;
 }
 
 .detail {
     padding: 10px;
-    /*min-width: 400px;
-  max-width: 600px;*/
-    width: 100%;
+    min-width: 250px;
     background-color: #EFEFEF;
+}
+.columnSize{
+  width: 250px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .listContainer {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     composes: bottomSpacing from "../../../style.css";
 }
 

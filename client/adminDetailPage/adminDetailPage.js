@@ -276,13 +276,13 @@ if(Meteor.isClient)
       $(selected).each(function(index,object){
         switch(object.name){
           case "deliveryMode":
-            deliveryMode.push(object.value);
+            deliveryMode.push({"value":object.value});
           break;
           case "studyMode":
-            studyMode.push(object.value);
+            studyMode.push({"value":object.value});
           break;
           case "intake":
-            intake.push(object.value);
+            intake.push({"month":object.value});
           break;
           default:
           break;
@@ -292,6 +292,7 @@ if(Meteor.isClient)
       var saveCourseInfromation = {};
 
       saveCourseInfromation.course = $('[name=txtCourse]').val();
+      saveCourseInfromation.courseImgUrl = $('[name=txtCourseImageUrl]').val();
       saveCourseInfromation.qualification = $('[name=txtQualification]').val();
       saveCourseInfromation.courseDurationMax = $('[name=txtMaxCourseDuration]').val();
       saveCourseInfromation.courseDurationMin = $('[name=txtMinCourseDuration]').val();

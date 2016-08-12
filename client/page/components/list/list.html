@@ -1,12 +1,13 @@
 <template name="list">
+  <div class="{{styles.listContainer}}">
   {{#each courseList}}
-    <div class="{{styles.listContainer}}">
+      <div class="{{styles.columnSize}}">
       <div class="{{styles.picture}}">
-
+        <img src="{{courseImgUrl}}" class="{{styles.pictureSize}}"/>
       </div>
       <div class="{{styles.detail}}">
         <div class="{{styles.courseName}}">
-          {{course}}
+          {{qualification}}
         </div>
         <div class="{{styles.rating}}">
           {{#each rating}}
@@ -23,16 +24,16 @@
             {{/with}}
           </div>
         </div>
-        <!--<div class="{{styles.subList}} {{styles.rating}}">
-          <div class="{{styles.icon}}" align="center"><i class="fa fa-usd" aria-hidden="true" style="color:#8A8A8A;"></i></div><div class="{{styles.displayLabel}}">{{minFees}} - {{maxFees}}</div>
-        </div>-->
+        <div class="{{styles.subList}}">
+          <div class="{{styles.icon}}" align="center"><i class="fa fa-clock-o" aria-hidden="true" style="color:#8A8A8A;"></i></div>
+          <div class="{{styles.displayLabel}}">{{courseDurationDisplay}}</div>
+        </div>
         <div class="{{styles.subList}}">
           <div class="{{styles.icon}}" align="center">
             <a href="#" id="compare-link" data-id="{{_id}}">
               <i class="fa fa-check-circle-o" aria-hidden="true" style="color:#8A8A8A;"></i>
             </a>
           </div><div class="{{styles.displayLabel}}">Compare</div>
-          {{> btnCompare}}
         </div>
         <div align="right">
           <a href="#">Learn More</a>
@@ -40,6 +41,7 @@
       </div>
     </div>
   {{/each}}
+  </div>
 </template>
 <template name="btnCompare">
   <button id="btnCompare" name="btnCompare" value="compareNow" class="">

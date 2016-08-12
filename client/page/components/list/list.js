@@ -2,45 +2,13 @@ import styles from './list.css';
 import {
     COURSE_LIST
 } from '../../../components/constants/data';
-
-// var COURSE_LIST = [{
-//     id: "c1",
-//     courseName: "Bachelor Degree in Computer Science",
-//     rating: [1, 2, 3, 4, 5],
-//     schoolName: "Multimedia University (MMU)",
-//     location: "Cyberjaya",
-//     minFees: "30,000",
-//     maxFees: "60,000"
-// }, {
-//     id: "c2",
-//     courseName: "Bachelor Degree in Information Systems",
-//     rating: [1, 2, 3, 4],
-//     schoolName: "Multimedia University (MMU)",
-//     location: "Melaka",
-//     minFees: "30,000",
-//     maxFees: "60,000"
-// }, {
-//     id: "c3",
-//     courseName: "Bachelor Degree in Information Technology",
-//     rating: [1, 2, 3],
-//     schoolName: "Multimedia University (MMU)",
-//     location: "Cyberjaya",
-//     minFees: "30,000",
-//     maxFees: "60,000"
-// }, {
-//     id: "c4",
-//     courseName: "Bachelor Degree in Psychology",
-//     rating: [1, 2, 3, 4, 5],
-//     schoolName: "Multimedia University (MMU)",
-//     location: "Melaka",
-//     minFees: "30,000",
-//     maxFees: "60,000"
-// }];
+import {
+  MONTH_MAP
+} from '../../../components/constants/map';
 
 if (Meteor.isClient) {
     Template.list.onCreated(function() {
         Meteor.subscribe('allCourses', function() {
-            console.log(Course.find().count());
         });
     });
 
@@ -52,15 +20,71 @@ if (Meteor.isClient) {
     Template.list.helpers({
         styles: styles,
         courseList: function() {
-            //console.log(COURSE_LIST);
-            console.log(Course.find().fetch());
-            return Course.find().fetch();
+            var searchCriteria = Session.get("searchCriteria");
+            console.log("searchCriteria in list page");
+            console.log(searchCriteria);
+
+            var searchObject = {};
+            if(searchCriteria)
+            {
+              if(searchCriteria.collegeName.length>0){
+                searchObject.provider = {$in:searchCriteria.collegeName}
+              }
+              if(searchCriteria.courseCategory != "ANY"){
+                searchObject.qualificationCategory = searchCriteria.courseCategory;
+              }
+              if(searchCriteria.courseName != ""){
+                searchObject.qualification = {$regex:searchCriteria.courseName.toUpperCase()};
+              }
+              if(searchCriteria.location != ""){
+                searchObject.location = {$elemMatch:{"text":{$regex:searchCriteria.location}}};
+              }
+              if(searchCriteria.courseDuration != ""){
+                searchObject.courseDurationMin = {$lte: (searchCriteria.courseDuration * 48) }
+              }
+              if(searchCriteria.intakeMonth != "")
+              {
+                var month = MONTH_MAP[searchCriteria.intakeMonth];
+                searchObject.intake = {$elemMatch:{"month":MONTH_MAP[searchCriteria.intakeMonth]}};
+              }
+            }
+
+            var courses = [];
+            if(searchObject != {})
+            {
+              console.log(searchObject);
+              courses = Course.find(searchObject).fetch();
+            }
+
+            for(var course in courses){
+              var  c = courses[course];
+              c.rating = [1,2,3,4,5];
+              if(c.courseDurationMax == c.courseDurationMin)
+              {
+                if(c.courseDurationMin>=48)
+                {
+                  c.courseDurationDisplay = (c.courseDurationMin/48) + " year(s)";
+                }
+                else{
+                  c.courseDurationDisplay = c.courseDurationMin + " week(s)"
+                }
+              }
+              else{
+                if(c.courseDurationMax>=48 && c.courseDurationMin>=48)
+                {
+                  c.courseDurationDisplay = (c.courseDurationMin/48) + " ~ " + (c.courseDurationMax/48) + " year(s)";
+                }
+                else {
+                  c.courseDurationDisplay = c.courseDurationMin + " ~ " + c.courseDurationMax + " week(s)";
+                }
+              }
+            }
+            return courses;
         },
         setLocation: function(location) {
             var locationString = location.map(function(obj) {
                 return obj.text
             });
-            console.log(locationString);
             return locationString.toString();
         }
     });
@@ -88,7 +112,6 @@ if (Meteor.isClient) {
                 Item.addClass("fa-check-circle-o");
                 Item.css("color", "#8A8A8A");
             }
-            //console.log(Item);
         }
     });
 

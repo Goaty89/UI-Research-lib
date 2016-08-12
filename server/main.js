@@ -10,9 +10,10 @@ Meteor.methods({
     insertCourse: function(course) {
         Course.insert({
             course: course.course,
+            courseImgUrl: course.courseImgUrl,
             qualification: course.qualification,
-            courseDurationMax: course.courseDurationMax,
-            courseDurationMin: course.courseDurationMin,
+            courseDurationMax: parseInt(course.courseDurationMax),
+            courseDurationMin: parseInt(course.courseDurationMin),
             deliveryMode: course.deliveryMode,
             studyMode: course.studyMode,
             intake: course.intake,

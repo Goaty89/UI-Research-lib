@@ -72,18 +72,20 @@ if (Meteor.isClient) {
             var studyModeList = $('.btn-studyMode.active').each(convertToButtonActivedList);
             var deliveryModeList = $('.btn-deliveryMode.active').each(convertToButtonActivedList);
 
-
-            this.collegeName = $(".typeahead[name='txtCollege']").tagsinput('items');
-            this.courseCategory = e.target.cbxCourseCategory.value;
-            this.courseName = e.target.txtCourseName.value;
-            this.eduLevelList = eduLvlList;
-            this.location = e.target.txtLocation ? e.target.txtLocation.value : '';
-            this.courseDuration = Session.get("slider");
-            this.rating = $('#rating').data('userrating');
-            this.studyMode = studyModeList;
-            this.deliveryMode = deliveryModeList;
-            this.intakeMonth = e.target.cbxIntakeMonth.value;
-            console.log(this);
+            var serachItem = {};
+            Session.set("searchCriteria",serachItem);
+            serachItem.collegeName = $(".typeahead[name='txtCollege']").tagsinput('items');
+            serachItem.courseCategory = e.target.cbxCourseCategory.value;
+            serachItem.courseName = e.target.txtCourseName.value;
+            serachItem.eduLevelList = [];//eduLvlList;
+            serachItem.location = e.target.txtLocation ? e.target.txtLocation.value : '';
+            serachItem.courseDuration = Session.get("slider");
+            // serachItem.rating = $('#rating').data('userrating');
+            serachItem.studyMode = [];//studyModeList;
+            serachItem.deliveryMode = [];//deliveryModeList;
+            serachItem.intakeMonth = e.target.cbxIntakeMonth.value;
+            Session.set("searchCriteria",serachItem);
+            console.log(serachItem);
         }
     });
 

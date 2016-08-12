@@ -54,6 +54,7 @@
   width: auto;
   max-width: 800px;
   min-width: 350px;
+  height: 24px;
 }
 .glanceInput{
   width: 100%;
