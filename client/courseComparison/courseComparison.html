@@ -6,8 +6,45 @@
     <div class="{{styles.cardContainer}}">
         {{#each courseList}}
             <div class="{{styles.card}}" id={{_id}}>
-                Course Name: {{course}}
-                Course Provided by: {{provider}}
+                <div class="{{styles.picture}}"><img src="{{courseImgUrl}}" class="{{styles.pictureSize}}"/></div>
+                <div class="{{styles.qualification}}">{{qualification}}</div>
+                <div class="{{styles.provider}} {{styles.cardText}}">{{provider}}</div>
+                <div class="{{styles.studyMode}} {{styles.cardText}}">
+                  {{#with setArrayToString studyMode}}
+                    {{this}}
+                  {{/with}}
+                </div>
+                <div class="{{styles.deliveryMode}} {{styles.cardText}}">
+                  {{#with setArrayToString deliveryMode}}
+                    {{this}}
+                  {{/with}}
+                </div>
+                <div class="{{styles.courseDuration}} {{styles.cardText}}">
+                  {{#with setCourseDuration courseDurationMax courseDurationMin}}
+                    {{this}}
+                  {{/with}}
+                </div>
+                <div class="{{styles.location}} {{styles.cardText}}">
+                  {{#with setArrayToString location}}
+                    {{this}}
+                  {{/with}}
+                </div>
+                <div class="{{styles.intake}} {{styles.cardText}}">
+                  {{#with setArrayToString intake}}
+                    {{this}}
+                  {{/with}}
+                </div>
+                <div class="{{styles.careerOutcomes}} {{styles.cardText}}">
+                  {{#with setArrayToList careerOutcomes}}
+                    {{this}}
+                  {{/with}}
+                </div>
+                <div align="right" class="{{styles.learnMore}}">
+                  <a href="#" id="learnMore" value="{{_id}}">Learn More</a>
+                </div>
+
+            </div>
+            <div class="{{styles.cardBorder}}">
             </div>
         {{/each}}
     </div>
