@@ -8,7 +8,7 @@
             <div class="{{styles.card}}" id={{_id}}>
                 <div class="{{styles.picture}}"><img src="{{courseImgUrl}}" class="{{styles.pictureSize}}"/></div>
                 <div class="{{styles.qualification}}">{{qualification}}</div>
-                <div class="{{styles.provider}} {{styles.cardText}}">{{provider}}</div>
+                <div class="{{styles.provider}} {{styles.cardText}}">{{providerLabel}}</div>
                 <div class="{{styles.studyMode}} {{styles.cardText}}">
                   {{#with setArrayToString studyMode}}
                     {{this}}
@@ -40,7 +40,7 @@
                   {{/with}}
                 </div>
                 <div align="right" class="{{styles.learnMore}}">
-                  <a href="#" id="learnMore" value="{{_id}}">Learn More</a>
+                  <a href="#" id="learnMore" name="{{_id}}">Learn More</a>
                 </div>
 
             </div>

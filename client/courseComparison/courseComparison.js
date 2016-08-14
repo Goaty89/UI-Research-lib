@@ -5,6 +5,8 @@ import {
 
 Template.courseComparison.created = function() {
     console.log(Session.get("selectedCompareList"));
+    Meteor.subscribe('allCourses', function() {
+    });
 }
 
 Template.cardContainer.created = function() {
@@ -76,4 +78,10 @@ Template.cardContainer.helpers({
         return (min/48) + word ;
       }
     }
+});
+Template.cardContainer.events({
+  'click #learnMore':function(evt, res){
+    evt.preventDefault();
+    Router.go("detailPage",{},{query:"id="+evt.currentTarget.name});
+  }
 });

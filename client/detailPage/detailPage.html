@@ -1,0 +1,117 @@
+<template name="detailPage">
+    {{#each courseInformation}}
+    <div class="{{styles.advWrapper}}">
+        <h1 class="{{styles.h1Header}}">{{qualification}}</h1>
+        <span class="{{styles.subTitle}}">{{providerLabel}}</span>
+    </div>
+    <div class="{{styles.divContainer}}">
+      <div class="{{styles.headTitle}}">The Course</div>
+      <div class="{{styles.course}}">{{course}}</div>
+    </div>
+    <div class="{{styles.divContainer}}">
+      <div class="{{styles.headTitle}}">At a Glance</div>
+      <div class="{{styles.trGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Qualification
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          {{qualificationLevel}}
+        </div>
+      </div>
+      <div class="{{styles.trAltGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Provider
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          {{providerLabel}}
+        </div>
+      </div>
+      <div class="{{styles.trGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Study Mode
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          {{#with setArrayToString studyMode}}
+            {{this}}
+          {{/with}}
+        </div>
+      </div>
+      <div class="{{styles.trAltGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Delivery Mode
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          {{#with setArrayToString deliveryMode}}
+            {{this}}
+          {{/with}}
+        </div>
+      </div>
+      <div class="{{styles.trGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Course Duration
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          {{#with setCourseDuration courseDurationMax courseDurationMin}}
+            {{this}}
+          {{/with}}
+        </div>
+      </div>
+      <div class="{{styles.trAltGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Location
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          {{#with setArrayToString location}}
+            {{this}}
+          {{/with}}
+        </div>
+      </div>
+      <div class="{{styles.trGlance}}">
+        <div class="{{styles.tdGlanceLabel}}">
+          Intake
+        </div>
+        <div class="{{styles.tdGlanceText}}">
+          {{#with setArrayToString intake}}
+            {{this}}
+          {{/with}}
+        </div>
+      </div>
+    </div>
+    <div class="{{styles.divContainer}}">
+      <div class="{{styles.headTitle}}">Key Topics</div>
+      <div>
+        {{#each keyTopic}}
+        <li>{{text}}</li>
+        {{/each}}
+      </div>
+    </div>
+    <div class="{{styles.divContainer}}">
+      <div class="{{styles.headTitle}}">Career Outcomes</div>
+      <div>
+        {{#each careerOutcomes}}
+        <li>{{text}}</li>
+        {{/each}}
+      </div>
+    </div>
+    <div class="{{styles.divContainer}}">
+      <div class="{{styles.headTitle}}">Pre-Requisites</div>
+      <div>
+        {{#each preRequisites}}
+        <li>{{text}}</li>
+        {{/each}}
+      </div>
+    </div>
+    <div class="{{styles.divContainer}}">
+      <div class="{{styles.headTitle}}">Our Partner for this course</div>
+      {{#each partner}}
+      <div class="{{styles.divContainerRow}}">
+        <div>
+          <div><img src="{{imageUrl}}" class="{{styles.imageSize}}"/></div>
+          <div class="{{styles.partnerLabel}}">{{label}}</div>
+          <div class="{{styles.partnerDescription}}">{{description}}</div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/each}}
+</template>

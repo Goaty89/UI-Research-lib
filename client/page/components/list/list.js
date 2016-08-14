@@ -118,6 +118,13 @@ if (Meteor.isClient) {
                   Item.css("color", "#8A8A8A");
               }
             }
+        },
+        "click #learnMore":function(evt, res){
+          evt.preventDefault();
+          console.log(evt.currentTarget.name);
+
+          console.log("click with id value ::"+evt.currentTarget.name)
+          Router.go("detailPage",{},{query:"id="+evt.currentTarget.name});
         }
     });
 

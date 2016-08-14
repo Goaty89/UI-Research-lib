@@ -1,0 +1,148 @@
+.pageHead{
+  background-color: #000040;
+
+}
+.h1Header{
+  font-size: 38px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 0 0 5px;
+}
+.subTitle{
+  font-weight: 600;
+  font-size: 32px;
+  color: #50b847;
+}
+.course{
+  font-family: 'Raleway',Arial,Helvetica,sans serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #545454;
+  padding: 20px 0;
+  line-height: 1.6em;
+}
+
+.advWrapper{
+    /*composes: container from "../style.css";*/
+    background: url("http://cdn2.hubspot.net/hubfs/1915995/bg/blue-bg.png?t=1468484873016") center repeat;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+.trGlance{
+  display: flex;
+  flex-direction: row;
+  background-color: #E3E3E3;
+}
+.trAltGlance{
+  display: flex;
+  flex-direction: row;
+  border: 1px;
+}
+.tdGlanceLabel{
+  padding:2px 10px;
+  font-weight: bold;
+  width: 250px;
+}
+.tdGlanceText{
+  padding:2px 10px;
+  width: 100%;
+  font-family: 'Raleway',Arial,Helvetica,sans serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #545454;
+  padding: 20px 0;
+  line-height: 1.6em;
+}
+.headTitle{
+  font-size: 20px;
+  color: #1c3f94;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.addButton{
+  color: #50b847;
+  font-size: 28px;
+  cursor: pointer;
+}
+.removeButton{
+  color: red;
+  font-size: 28px;
+  cursor: pointer;
+}
+.divContainerRow{
+  display: flex;
+  flex-direction: row;
+}
+.divContainer{
+  font-family: 'Raleway',Arial,Helvetica,sans serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #545454;
+  padding: 20px 0;
+  line-height: 1.6em;
+}
+.divAddButton{
+  padding-left: 10px;
+}
+.divListItem {
+  padding:2px 10px;
+  width: auto;
+  max-width: 500px;
+  min-width: 350px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.multipleAddInput{
+  width: auto;
+  max-width: 800px;
+  min-width: 350px;
+  height: 24px;
+}
+.glanceInput{
+  width: 100%;
+  margin-top: 10px;
+  max-width: 500px;
+  min-width: 200px;
+}
+.weekInput{
+  margin-top: 10px;
+  max-width: 100px;
+}
+textarea{
+  width: 100%;
+}
+.tdRadioButton{
+  margin-left: 10px;
+  width: 160px;
+}
+.divFlexWrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+.qualificationLevelDropDown{
+  width: 75%;
+}
+.leftMargin{
+  margin-left: 20px;
+}
+.imageSize{
+  width:180px;
+}
+.partnerDescription{
+  font-family: 'Raleway',Arial,Helvetica,sans serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #545454;
+  padding: 20px 0;
+  line-height: 1.6em;
+}
+.partnerLabel{
+  font-weight: 700;
+  font-size: 14px;
+  color: #545454;
+  line-height: 1.6em;
+  font-family: 'Raleway',Arial,Helvetica,sans serif;
+}

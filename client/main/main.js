@@ -43,3 +43,8 @@ Router.route('courseComparison', function () {
   this.render('comparisonAside', {to: 'aside'});
   this.render('footer', {to: 'footer'});
 });
+Router.route('detailPage', function () {
+  this.render('header', {to: 'header'});
+  this.render('detailPage');
+  this.render('footer', {to: 'footer'});
+});
