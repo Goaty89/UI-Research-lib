@@ -7,4 +7,11 @@
 }
 .btnCompare{
   padding:2px 5px;
+  background-color: #D6D6D6;
+  color:#BFBFBF;
+}
+.btnCompareGreen{
+  padding:2px 5px;
+  background-color: #56a800;
+  color:#fff;
 }

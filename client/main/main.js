@@ -40,7 +40,6 @@ Router.route('adminDetailPage', function () {
 Router.route('courseComparison', function () {
   this.render('header', {to: 'header'});
   this.render('courseComparison');
-  this.render('asideNav', {to: 'aside'});
+  this.render('comparisonAside', {to: 'aside'});
   this.render('footer', {to: 'footer'});
 });
-

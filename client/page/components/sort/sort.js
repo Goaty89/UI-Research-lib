@@ -18,6 +18,14 @@ Template.sort.helpers({
       var currentCompareCount = Session.get("selectedCompareList");
       if(currentCompareCount && currentCompareCount.length>0)
       {
+        if(currentCompareCount.length>=2){
+          $("#btnCompare").removeClass("_client_page_components_sort__sort__btnCompare");
+          $("#btnCompare").addClass("_client_page_components_sort__sort__btnCompareGreen");
+        }
+        else {
+          $("#btnCompare").removeClass("_client_page_components_sort__sort__btnCompareGreen");
+          $("#btnCompare").addClass("_client_page_components_sort__sort__btnCompare");
+        }
         return currentCompareCount.length;
       }
       else {
@@ -31,7 +39,7 @@ Template.sort.events({
 
     "click #btnCompare": function(evt, res) {
       var currentCompareCount = Session.get("selectedCompareList");
-      if(currentCompareCount && currentCompareCount.length>0)
+      if(currentCompareCount && currentCompareCount.length>=2)
       {
         if(currentCompareCount.length<5)
         {
