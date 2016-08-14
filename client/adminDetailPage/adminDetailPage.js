@@ -1,10 +1,18 @@
 import styles from './adminDetailPage.css';
-import {MONTH_LIST} from '../components/constants/FormData';
-import {DELIVERY_MODE_LIST} from '../components/constants/FormData';
-import {STUDY_MODE_LIST} from '../components/constants/FormData';
-import {QUALIFICATION_LIST} from '../components/constants/FormData';
-import {PROVIDER_LIST} from '../components/constants/FormData';
-import {CATEGORY_LIST} from '../components/constants/FormData';
+import {
+  MONTH_LIST,
+  DELIVERY_MODE_LIST,
+  STUDY_MODE_LIST,
+  QUALIFICATION_LIST,
+  PROVIDER_LIST,
+  CATEGORY_LIST
+} from '../components/constants/FormData';
+
+import {
+  NUM_TO_MONTH_MAP,
+  STUDY_MODE_MAP,
+  DELIVERY_MODE_MAP
+} from '../components/constants/map';
 
 if(Meteor.isClient)
 {
@@ -276,13 +284,13 @@ if(Meteor.isClient)
       $(selected).each(function(index,object){
         switch(object.name){
           case "deliveryMode":
-            deliveryMode.push({"value":object.value});
+            deliveryMode.push({"value":object.value,"text":DELIVERY_MODE_MAP[object.value]});
           break;
           case "studyMode":
-            studyMode.push({"value":object.value});
+            studyMode.push({"value":object.value,"text":STUDY_MODE_MAP[object.value]});
           break;
           case "intake":
-            intake.push({"month":object.value});
+            intake.push({"month":object.value,"text":NUM_TO_MONTH_MAP[object.value]});
           break;
           default:
           break;
@@ -304,13 +312,12 @@ if(Meteor.isClient)
       saveCourseInfromation.qualificationLevel = $('[name=qualificationLevel]').val();
       saveCourseInfromation.qualificationCategory = $('[name=qualificationCategory]').val();
       saveCourseInfromation.provider = $('[name=provider]').val();
+      saveCourseInfromation.providerLabel = $("[name=provider] option:selected").text();
       saveCourseInfromation.location = Session.get("location");
       saveCourseInfromation.keyTopic = Session.get("keyTopic");
       saveCourseInfromation.careerOutcomes = Session.get("careerOutcomes");
       saveCourseInfromation.preRequisites = Session.get("preRequisites");
       saveCourseInfromation.partner = Session.get("partner");
-      console.log("saveCourseInfromation");
-      console.log(saveCourseInfromation);
 
       Meteor.call("insertCourse",saveCourseInfromation, function (error,results)
       {

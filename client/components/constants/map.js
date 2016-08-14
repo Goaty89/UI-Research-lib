@@ -25,4 +25,14 @@ NUM_TO_MONTH_MAP = {
   "10":"October",
   "11":"November",
   "12":"December"
+},
+STUDY_MODE_MAP = {
+  "FULLTIME" : "Full Time",
+  "PARTTIME" : "Part Time",
+  "SELFPACED" : "Self-Paced"
+},
+DELIVERY_MODE_MAP = {
+  "ONLINE":"Online Learning",
+  "LECTURER":"Lecturer",
+  "COLLABORATING":"Collaborating"
 }
