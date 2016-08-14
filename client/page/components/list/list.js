@@ -92,25 +92,31 @@ if (Meteor.isClient) {
     Template.list.events({
         'click #compare-link': function(evt, res) {
             evt.preventDefault();
-            var currentId = $(evt.currentTarget).data().id;
-            if (selectedCompareList.indexOf(currentId) > -1) {
-                selectedCompareList = selectedCompareList.filter(function(selectedIds) {
-                    return selectedIds != currentId
-                });
-            } else {
-                selectedCompareList.push(currentId);
+            var compareCount = Session.set("selectedCompareList");
+
+            if(compareCount && compareCount.length>=5){
+              alert("Maximun compare only can be 5");
             }
-            Session.set("selectedCompareList", selectedCompareList);
-            console.log(selectedCompareList);
-            var Item = $(evt.currentTarget).find("i");
-            if (Item.hasClass("fa-check-circle-o")) {
-                Item.removeClass("fa-check-circle-o");
-                Item.addClass("fa-check-circle");
-                Item.css("color", "#4EB947");
-            } else {
-                Item.removeClass("fa-check-circle");
-                Item.addClass("fa-check-circle-o");
-                Item.css("color", "#8A8A8A");
+            else {
+              var currentId = $(evt.currentTarget).data().id;
+              if (selectedCompareList.indexOf(currentId) > -1) {
+                  selectedCompareList = selectedCompareList.filter(function(selectedIds) {
+                      return selectedIds != currentId
+                  });
+              } else {
+                  selectedCompareList.push(currentId);
+              }
+              Session.set("selectedCompareList", selectedCompareList);
+              var Item = $(evt.currentTarget).find("i");
+              if (Item.hasClass("fa-circle-o")) {
+                  Item.removeClass("fa-circle-o");
+                  Item.addClass("fa-check-circle");
+                  Item.css("color", "#4EB947");
+              } else {
+                  Item.removeClass("fa-check-circle");
+                  Item.addClass("fa-circle-o");
+                  Item.css("color", "#8A8A8A");
+              }
             }
         }
     });

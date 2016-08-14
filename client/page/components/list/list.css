@@ -6,6 +6,7 @@
   max-width: 250px;
   max-height: 250px;
   vertical-align: center;
+  position: relative;
 }
 
 .detail {
@@ -47,4 +48,8 @@
 
 .rating {
     composes: bottomSpacing from "../../../style.css";
+}
+.checkPoint{
+  position: absolute; 
+  z-index: 1;
 }

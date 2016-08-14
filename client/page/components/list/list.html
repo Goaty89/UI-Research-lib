@@ -3,6 +3,9 @@
   {{#each courseList}}
       <div class="{{styles.columnSize}}">
       <div class="{{styles.picture}}">
+        <a href="#" id="compare-link" data-id="{{_id}}" class="{{styles.checkPoint}}">
+          <i class="fa fa-circle-o" aria-hidden="true" style="color:#8A8A8A;"></i>
+        </a>
         <img src="{{courseImgUrl}}" class="{{styles.pictureSize}}"/>
       </div>
       <div class="{{styles.detail}}">
@@ -31,7 +34,7 @@
         <div class="{{styles.subList}}">
           <div class="{{styles.icon}}" align="center">
             <a href="#" id="compare-link" data-id="{{_id}}">
-              <i class="fa fa-check-circle-o" aria-hidden="true" style="color:#8A8A8A;"></i>
+              <i class="fa fa-circle-o" aria-hidden="true" style="color:#8A8A8A;"></i>
             </a>
           </div><div class="{{styles.displayLabel}}">Compare</div>
         </div>
