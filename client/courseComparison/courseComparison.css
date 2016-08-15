@@ -56,3 +56,13 @@
 }
 .learnMore{
 }
+.btnInquiry{
+  background-color: #56a800;
+  color: #FFF;
+  padding: 5px 10px;
+  font-weight: 600;
+}
+.halfWidth
+{
+  width: 50%;
+}
