@@ -27,6 +27,20 @@
   font-weight: 600;
 }
 
+.btnPage{
+  background-color: #F3F3F3;
+  color: #3498db;
+  padding: 2px 15px;
+  border: 1px;
+}
+.btnPageClicked{
+  background-color: #3498db;
+  color: #FFF;
+  padding: 2px 15px;
+  border: 1px;
+  border-color: #3498db;
+}
+
 .listContainer {
     display: flex;
     flex-direction: row;

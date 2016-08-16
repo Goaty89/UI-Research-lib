@@ -1,6 +1,7 @@
 <template name="list">
   <div class="{{styles.listContainer}}">
-  {{#each courseList}}
+    {{#with courseList allCoursesList}}
+  {{#each this}}
       <div class="{{styles.columnSize}}">
       <div class="{{styles.picture}}">
         <a href="#" id="compare-link" data-id="{{_id}}" class="{{styles.checkPoint}}">
@@ -43,11 +44,20 @@
         </div>
       </div>
       <div>
-        <input type="button" id="btnInquiry" name="btnInquiry" value="Inquiry Now" class="{{styles.btnInquiry}}" style="width:250px;border:0px;"/>
+        <button id="btnInquiry" name="btnInquiry" value="Inquiry Now" class="{{styles.btnInquiry}}" style="width:250px;border:0px;">Inquiry Now</button>
       </div>
     </div>
   {{/each}}
+  {{/with}}
   </div>
+  <div>
+    {{#with setPaging allCoursesList}}
+      {{#each this}}
+        <button id="btnPage" name="{{page}}" value="{{page}}" class="{{#with pageNumber page}}{{#if this}}{{styles.btnPageClicked}}{{else}}{{styles.btnPage}}{{/if}}{{/with}}" >{{page}}</button>
+      {{/each}}
+    {{/with}}
+  </div>
+
 </template>
 <template name="btnCompare">
   <button id="btnCompare" name="btnCompare" value="compareNow" class="">
