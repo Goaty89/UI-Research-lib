@@ -48,3 +48,13 @@ Router.route('detailPage', function () {
   this.render('detailPage');
   this.render('footer', {to: 'footer'});
 });
+Router.route('login', function () {
+  this.render('header', {to: 'header'});
+  this.render('login');
+  this.render('footer', {to: 'footer'});
+});
+Router.route('register', function () {
+  this.render('header', {to: 'header'});
+  this.render('register');
+  this.render('footer', {to: 'footer'});
+});
