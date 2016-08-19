@@ -2,25 +2,9 @@
     <div class="{{styles.asideNavWrapper}}">
         <!---->
         <div class="{{styles.tabs}}">
-            <!-- Radio button and lable for #tab-content1 -->
-            <input type="radio" name="tabs" id="tab1" checked >
-            <label for="tab1" class="{{styles.tabsLabel}}">
-                Filter
-            </label>
-            <!-- Radio button and lable for #tab-content2 -->
-            <input type="radio" name="tabs" id="tab2">
-            <label for="tab2" class="{{styles.tabsLabel}}">
-               Filtered
-            </label>
-            <!-- Radio button and lable for #tab-content3 -->
-            <!--<input type="radio" name="tabs" id="tab3">
-            <label for="tab3" class="{{styles.tabsLabel}}">
-                <i class="fa fa-code"></i><span>jQuery</span>
-            </label>-->
             <div id="tabContent1" class="active {{styles.tabContent}}">
-                <h3><!-- Tab title here --></h3>
+                
                 <div class="{{styles.title}}" align="center">Filter</div>
-                <p><!-- Tab content here --></p>
                 <form name="filter-form" id="filter-form">
                 <div class="{{styles.filterMainContainer}}">
                     {{> ProviderFilter}}
@@ -42,14 +26,8 @@
                 </form>
             </div> <!-- #tab-content1 -->
             <div id="tabContent2" class="{{styles.tabContent}}">
-                <h3><!-- Tab title here --></h3>
-                <p><!-- Tab content here --></p>
                 {{> filteredList}}
             </div> <!-- #tab-content2 -->
-            <div id="{{styles.tabContent3}}" class="{{styles.tabContent}}">
-                <h3><!-- Tab title here --></h3>
-                <p><!-- Tab content here --></p>
-            </div> <!-- #tab-content3 -->
         </div>
         <!---->
     </div>
@@ -57,7 +35,10 @@
 
 
 <template name="filteredList">
-        <div class="{{styles.title}}" align="center">You are checking this info </div>
+        <div class="{{styles.title}}" align="center">
+            <button class="btnBackToFilter">&lsaquo;</button>
+            You are checking this info 
+        </div>
         <div class="{{styles.filterFontFormat}}">
         <label>Filtered by:</label>
         {{#each listFilter}}

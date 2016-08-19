@@ -1,8 +1,25 @@
 <template name="register">
-    <h2>Register</h2>
-    <form clas="register">
-        <p>Email: <input type="email" name="email"></p>
-        <p>Password: <input type="password" name="password"></p>
-        <p><input type="submit" value="Register"></p>
-    </form>
+    {{#if notLogin}}
+        <h2>Register</h2>
+        <form clas="register">
+            <p>Full name: <input type="text" name="fname"> </p>
+            <p>Email: <input type="email" name="email"></p>
+            <p>Phone number: <input type="number" name="phoneNumber"></p>
+            {{> cbxQualificationForSignup}}
+            <p><input type="submit" value="Register"></p>
+        </form>
+    {{/if}}
+</template>
+
+<template name="cbxQualificationForSignup">
+    <div class="">
+        <label for="cbxQualificationForSignup">Latest Qualification Level: </label>
+        <select name="cbxQualificationForSignup" class="cbx-qualification-for-signup">
+            {{#with List}}
+                {{#each List}}
+                    <option value="{{key}}">{{label}}</option>
+                {{/each}}
+            {{/with}}
+        </select>
+    </div>
 </template>

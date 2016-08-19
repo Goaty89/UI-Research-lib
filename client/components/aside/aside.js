@@ -73,19 +73,29 @@ if (Meteor.isClient) {
             var deliveryModeList = $('.btn-deliveryMode.active').each(convertToButtonActivedList);
 
             var serachItem = {};
-            Session.set("searchCriteria",serachItem);
+            Session.set("searchCriteria", serachItem);
             serachItem.collegeName = $(".typeahead[name='txtCollege']").tagsinput('items');
             serachItem.courseCategory = e.target.cbxCourseCategory.value;
             serachItem.courseName = e.target.txtCourseName.value;
-            serachItem.eduLevelList = [];//eduLvlList;
+            serachItem.eduLevelList = []; //eduLvlList;
             serachItem.location = e.target.txtLocation ? e.target.txtLocation.value : '';
             serachItem.courseDuration = Session.get("slider");
             // serachItem.rating = $('#rating').data('userrating');
-            serachItem.studyMode = [];//studyModeList;
-            serachItem.deliveryMode = [];//deliveryModeList;
+            serachItem.studyMode = []; //studyModeList;
+            serachItem.deliveryMode = []; //deliveryModeList;
             serachItem.intakeMonth = e.target.cbxIntakeMonth.value;
-            Session.set("searchCriteria",serachItem);
+            Session.set("searchCriteria", serachItem);
+
+            //change aside
+            e.target.closest('[id^=tabContent]').classList.remove('active');
+            document.getElementById("tabContent2").classList.add('active');
+
             console.log(serachItem);
+        },
+        'click .btnBackToFilter': function(e) {
+            e.preventDefault();
+            e.target.closest('[id^=tabContent]').classList.remove('active');
+            document.getElementById("tabContent1").classList.add('active');
         }
     });
 

@@ -34,7 +34,9 @@ Meteor.methods({
         User_data.insert({
             createdDate: new Date(),
             createdBy: Meteor.userId(),
-            email: userDetails.email
+            email: userDetails.email,
+            phoneNumber: userDetails.phone,
+            qualificationLvl: userDetails.qualification
         });
     }
 });
