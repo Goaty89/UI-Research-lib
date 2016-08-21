@@ -39,8 +39,8 @@ Router.route('adminDetailPage', function () {
 });
 Router.route('courseComparison', function () {
   this.render('header', {to: 'header'});
-  this.render('courseComparison');
   this.render('comparisonAside', {to: 'aside'});
+  this.render('courseComparison');
   this.render('footer', {to: 'footer'});
 });
 Router.route('detailPage', function () {

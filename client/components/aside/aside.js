@@ -92,7 +92,7 @@ if (Meteor.isClient) {
 
             console.log(serachItem);
         },
-        'click .btnBackToFilter': function(e) {
+        'click [class$="btnBackToFilter"]': function(e) {
             e.preventDefault();
             e.target.closest('[id^=tabContent]').classList.remove('active');
             document.getElementById("tabContent1").classList.add('active');
@@ -188,6 +188,47 @@ if (Meteor.isClient) {
     Template.filteredList.helpers({
         styles: styles,
         listFilter: function() {
+            var getSearchedCriteria = Session.get("searchCriteria");
+            var displayCriteria = [{
+                    title: 'provider',
+                    key: getSearchedCriteria.collegeName,
+                    label: null
+                }, {
+                    title: 'course category',
+                    key: getSearchedCriteria.courseCategory,
+                    label: getSearchedCriteria.courseCategory
+                }, {
+                    title: 'course name',
+                    key: getSearchedCriteria.courseName,
+                    label: getSearchedCriteria.courseName
+                }, {
+                    title: 'qualification',
+                    key: getSearchedCriteria.eduLevelList,
+                    label: null
+                }, {
+                    title: 'study mode',
+                    key: getSearchedCriteria.studyMode,
+                    label: null
+                }, {
+                    title: 'intake month',
+                    key: getSearchedCriteria.intakeMonth,
+                    label: getSearchedCriteria.intakeMonth
+                }, {
+                    title: 'delivery mode',
+                    key: getSearchedCriteria.deliveryMode,
+                    label: null
+                }, {
+                    title: 'location',
+                    key: getSearchedCriteria.location,
+                    label: getSearchedCriteria.location
+                }, {
+                    title: 'course dutation',
+                    key: getSearchedCriteria.courseDuration,
+                    label: getSearchedCriteria.courseDuration
+                }
+
+            ];
+
             var lsFilter = [{
                 itemName: "Business Management"
             }, {
@@ -195,7 +236,7 @@ if (Meteor.isClient) {
             }, {
                 itemName: "MMU"
             }];
-            return lsFilter;
+            return displayCriteria;
         }
     });
 

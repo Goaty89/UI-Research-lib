@@ -18,7 +18,8 @@
                         {{> LocationFilter}}
                     {{/with}}
                     {{> CourseDurationFilter}}
-                    {{> RatingFilter}}
+                    <!--todo: rating-->
+                    <!--{{> RatingFilter}}-->
                 </div>
                 <div class="" align="center">
                     <input type="submit" id="filter-form-submit" name="btn-submit" value="SEARCH" class="{{styles.btnSearch}}"/>
@@ -35,14 +36,18 @@
 
 
 <template name="filteredList">
-        <div class="{{styles.title}}" align="center">
-            <button class="btnBackToFilter">&lsaquo;</button>
-            You are checking this info 
+        <div class="{{styles.filtered}}" align="center">
+            <button class="{{styles.btnBackToFilter}}">&lsaquo;</button>
+            Filtered by
         </div>
         <div class="{{styles.filterFontFormat}}">
-        <label>Filtered by:</label>
         {{#each listFilter}}
-                <div class="{{styles.item}}">{{itemName}} <a href="#" class="{{styles.btnDelete}}" id="btnDelete">x</a></div>
+            {{#if label}}
+            <div class="{{styles.filterContent}}">
+                <label for="{{key}}">{{title}}</label>
+                <div name="{{key}}" class="{{styles.item}}" data-key="{{key}}">{{label}} <a href="#" class="{{styles.btnDelete}}" id="btnDelete">x</a></div>
+            </div>
+            {{/if}}
         {{/each}}
         </div>
 </template>
@@ -85,7 +90,7 @@
 </template>
 <template name="ProviderFilter">
     <div class="{{styles.filterContent}}">
-        <label for="txtCollege">PROVIDER</label>
+        <label for="txtCollege">PROVIDER (UNIVERSITY/COLLEGE)</label>
             <input type="text" value="" class="typeahead" name="txtCollege" />
     </div>
 </template>
