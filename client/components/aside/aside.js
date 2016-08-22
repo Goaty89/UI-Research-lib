@@ -90,6 +90,7 @@ if (Meteor.isClient) {
             serachItem.studyMode = studyModeList;
             serachItem.deliveryMode = deliveryModeList;
             serachItem.eduLevel = eduLvlList;
+
             serachItem.intakeMonth = e.target.cbxIntakeMonth.value;
             Session.set("searchCriteria", serachItem);
 
