@@ -10,6 +10,24 @@ Template.courseComparison.created = function() {
 }
 
 Template.cardContainer.created = function() {
+
+    function getMaxArrayLength(arr, prop) {
+        var max;
+        for (var i=0 ; i<arr.length ; i++) {
+            if (!max || parseInt(arr[i][prop].length) > parseInt(max[prop].length))
+                max = arr[i];
+        }
+        return max[prop].length;
+    }
+    function getMin(arr, prop) {
+        var min;
+        for (var i=0 ; i<arr.length ; i++) {
+            if (!min || parseInt(arr[i][prop]) < parseInt(min[prop]))
+                min = arr[i];
+        }
+        return min[prop];
+    }
+
     let compareList = Session.get("selectedCompareList");
 
     if (compareList) {
@@ -18,11 +36,23 @@ Template.cardContainer.created = function() {
                 $in: compareList
             }
         }).fetch();
+
         if(detailList.length<=0)
         {
           Router.go('/');
         }
+
+        let maxList={};
+        maxList.durationMin = getMin(detailList,"courseDurationMin");
+        maxList.deliveryMode = getMaxArrayLength(detailList,"deliveryMode");
+        maxList.studyMode = getMaxArrayLength(detailList,"studyMode");
+        maxList.intake = getMaxArrayLength(detailList,"intake");
+        maxList.location = getMaxArrayLength(detailList,"location");
+        maxList.careerOutcomes = getMaxArrayLength(detailList,"careerOutcomes");
+
         Session.set("courseDetails", detailList);
+        Session.set("maxListDetails", maxList);
+        console.log(maxList);
     }
     else {
       Router.go('/');
@@ -60,7 +90,6 @@ Template.cardContainer.helpers({
           return "- "+obj.value+"<br/>";
         }
       });
-      console.log(returnString.join(""));
       return new Handlebars.SafeString(returnString.join(""));
     },
     setCourseDuration: function(max,min){
@@ -77,6 +106,26 @@ Template.cardContainer.helpers({
       else {
         return (min/48) + word ;
       }
+    },
+    isBestChoiceArray: function(arr,key){
+      var max = Session.get("maxListDetails");
+      if(arr.length == max[key])
+      {
+        return true;
+      }
+      else {
+        return false;
+      }
+    },
+    isBestChoice: function(value,key){
+      var max = Session.get("maxListDetails");
+      if(max[key] == value){
+        return true;
+      }
+      else {
+        return false;
+      }
+
     }
 });
 Template.cardContainer.events({

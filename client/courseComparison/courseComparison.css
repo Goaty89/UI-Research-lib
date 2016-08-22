@@ -19,35 +19,54 @@
 .qualification
 {
   height:80px;
+  padding: 5px 5px;
+  margin: 5px 0px;
 }
 .provider
 {
   height:50px;
+  padding: 5px 5px;
+  margin: 5px 0px;
 }
 .studyMode
 {
   height:50px;
+  padding: 5px 5px;
+  margin: 5px 0px;
 }
 .deliveryMode
 {
   height:50px;
+  padding: 5px 5px;
+  margin: 5px 0px;
 }
 .courseDuration
 {
   height:50px;
+  padding: 5px 5px;
+  margin: 5px 0px;
 }
 .location
 {
   height:80px;
+  padding: 5px 5px;
+  margin: 5px 0px;
 }
 .intake
 {
   height:80px;
+  padding: 5px 5px;
+  margin: 5px 0px;
 }
 .careerOutcomes
 {
   height:auto;
+  padding: 5px 5px;
+  margin: 5px 0px;
 
+}
+.highlightBoder{
+    border-left: 6px solid #56a800;
 }
 .cardText{
   color: #8A8A8A;
