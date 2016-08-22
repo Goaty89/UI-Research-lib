@@ -2,25 +2,9 @@
     <div class="{{styles.asideNavWrapper}}">
         <!---->
         <div class="{{styles.tabs}}">
-            <!-- Radio button and lable for #tab-content1 -->
-            <input type="radio" name="tabs" id="tab1" checked >
-            <label for="tab1" class="{{styles.tabsLabel}}">
-                Filter
-            </label>
-            <!-- Radio button and lable for #tab-content2 -->
-            <input type="radio" name="tabs" id="tab2">
-            <label for="tab2" class="{{styles.tabsLabel}}">
-               Filtered
-            </label>
-            <!-- Radio button and lable for #tab-content3 -->
-            <!--<input type="radio" name="tabs" id="tab3">
-            <label for="tab3" class="{{styles.tabsLabel}}">
-                <i class="fa fa-code"></i><span>jQuery</span>
-            </label>-->
-            <div id="{{styles.tabContent1}}" class="{{styles.tabContent}}">
-                <h3><!-- Tab title here --></h3>
+            <div id="tabContent1" class="active {{styles.tabContent}}">
+                
                 <div class="{{styles.title}}" align="center">Filter</div>
-                <p><!-- Tab content here --></p>
                 <form name="filter-form" id="filter-form">
                 <div class="{{styles.filterMainContainer}}">
                     {{> ProviderFilter}}
@@ -34,22 +18,17 @@
                         {{> LocationFilter}}
                     {{/with}}
                     {{> CourseDurationFilter}}
-                    {{> RatingFilter}}
+                    <!--todo: rating-->
+                    <!--{{> RatingFilter}}-->
                 </div>
                 <div class="" align="center">
                     <input type="submit" id="filter-form-submit" name="btn-submit" value="SEARCH" class="{{styles.btnSearch}}"/>
                 </div>
                 </form>
             </div> <!-- #tab-content1 -->
-            <div id="{{styles.tabContent2}}" class="{{styles.tabContent}}">
-                <h3><!-- Tab title here --></h3>
-                <p><!-- Tab content here --></p>
+            <div id="tabContent2" class="{{styles.tabContent}}">
                 {{> filteredList}}
             </div> <!-- #tab-content2 -->
-            <div id="{{styles.tabContent3}}" class="{{styles.tabContent}}">
-                <h3><!-- Tab title here --></h3>
-                <p><!-- Tab content here --></p>
-            </div> <!-- #tab-content3 -->
         </div>
         <!---->
     </div>
@@ -57,11 +36,18 @@
 
 
 <template name="filteredList">
-        <div class="{{styles.title}}" align="center">You are checking this info </div>
+        <div class="{{styles.filtered}}" align="center">
+            <button class="{{styles.btnBackToFilter}}">&lsaquo;</button>
+            Filtered by
+        </div>
         <div class="{{styles.filterFontFormat}}">
-        <label>Filtered by:</label>
         {{#each listFilter}}
-                <div class="{{styles.item}}">{{itemName}} <a href="#" class="{{styles.btnDelete}}" id="btnDelete">x</a></div>
+            {{#if label}}
+            <div class="{{styles.filterContent}}">
+                <label for="{{key}}">{{title}}</label>
+                <div name="{{key}}" class="{{styles.item}}" data-key="{{key}}">{{label}} <a href="#" class="{{styles.btnDelete}}" id="btnDelete">x</a></div>
+            </div>
+            {{/if}}
         {{/each}}
         </div>
 </template>
@@ -104,7 +90,7 @@
 </template>
 <template name="ProviderFilter">
     <div class="{{styles.filterContent}}">
-        <label for="txtCollege">PROVIDER</label>
+        <label for="txtCollege">PROVIDER (UNIVERSITY/COLLEGE)</label>
             <input type="text" value="" class="typeahead" name="txtCollege" />
     </div>
 </template>

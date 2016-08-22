@@ -1,4 +1,6 @@
-import { Meteor } from 'meteor/meteor';
+import {
+    Meteor
+} from 'meteor/meteor';
 
 Meteor.publish('allCourses', function() {
     //  console.log("Publishing; ", Course.find());
@@ -26,6 +28,15 @@ Meteor.methods({
             preRequisites: course.preRequisites,
             partner: course.partner,
             createdDate: new Date()
+        });
+    },
+    insertToUser_data: function(userDetails) {
+        User_data.insert({
+            createdDate: new Date(),
+            createdBy: Meteor.userId(),
+            email: userDetails.email,
+            phoneNumber: userDetails.phone,
+            qualificationLvl: userDetails.qualification
         });
     }
 });

@@ -2,7 +2,12 @@
     <div class="{{styles.headerWrapper}}">
         <div class="{{styles.topLayerContainer}}">
             <img src="/images/logo.png" alt="Jobstreet Education"/>
-            <div> <a href="#" class="{{styles.btnSearch}}" id="ExpInterest" name="{{id}}"><span>search</span></a></div>
+            <div> 
+                <a href="#" class="{{styles.btnSearch}}" id="ExpInterest" name="{{id}}">
+                    <span>search</span>
+                </a>
+                {{> signInSystem}}
+            </div>
         </div>
         <div class="{{styles.nav}}">
             <nav>
@@ -15,5 +20,10 @@
         <!--div class="{{styles.advWrapper}}">
             <h1>Title</h1>
         </div-->
+    </div>
+</template>
+<template name="signInSystem">
+    <div>
+        Hello, guest! (<a href="{{pathFor 'login'}}" name="linkLogin">login</a>)
     </div>
 </template>

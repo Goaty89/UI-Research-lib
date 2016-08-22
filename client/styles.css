@@ -1,0 +1,97 @@
+/*Common css file.*/
+
+*:global {
+    padding: 0;
+    margin: 0;
+}
+
+body:global {
+    font-size: 14px;
+    line-height: 1.5;
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+form{
+    margin: 0;
+    padding: 0;
+}
+
+.containerWrapper:global {
+    width: 100%;
+    margin: 0 auto;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+    padding: 20px 15% 20px;
+}
+article{
+  width: 100%;
+}
+.container:global {
+    padding: 0 15%;
+}
+
+.bottomSpacing{
+  margin-bottom: 10px;
+}
+.font{
+  color:#797979;
+  font-size: large;
+  font-weight: lighter;
+}
+
+.locationBody{
+    font-family: 'Roboto-Light', sans-serif;
+    font-size: 21px;
+}
+
+:global(.btn){
+    border-radius: 2px;
+}
+
+:global(.btn-green){
+    color: #fff;
+    background-color: #56a800;
+    border-color: #56a800;
+}
+
+.btn-green:hover,.btn-green:focus{
+
+    color: #fff;
+    background-color: #40740a;
+    border-color: #40740a;
+}
+
+.redirect-to-add{
+  margin-right: 1rem;
+}
+
+.fieldText{
+    color: #000000;
+    border-radius: 10px;
+}
+
+/*Color*/
+.color-deep-blue{
+    background-color: #1c3f94;
+}
+
+.color-deep-yellow{
+    background-color: #FEF200;
+}
+
+.color-light-grey {
+    background-color: #EFEFEF;
+}
+:global(.active){
+    display: block;
+}
+@media screen and (min-width:600px) {
+    body {
+        font-size: 18px;
+    }
+}
