@@ -46,6 +46,24 @@ if (Meteor.isClient) {
               var month = MONTH_MAP[searchCriteria.intakeMonth];
               searchObject.intake = {$elemMatch:{"month":MONTH_MAP[searchCriteria.intakeMonth]}};
             }
+            /*
+            serachItem.studyMode = studyModeList;
+            serachItem.deliveryMode = deliveryModeList;
+            serachItem.eduLevel = eduLvlList;
+            { "qualificationLevel": { $in: ["MASTERS"] } }
+            */
+            if(searchCriteria.eduLevel.length>0)
+            {
+              searchObject.qualificationLevel = {$in:searchCriteria.eduLevel};
+            }
+            if(searchCriteria.studyMode.length>0)
+            {
+              searchObject.studyMode = {$elemMatch:{"value":{$in:searchCriteria.studyMode}}};
+            }
+            if(searchCriteria.deliveryMode.length>0)
+            {
+              searchObject.deliveryMode = {$elemMatch:{"value":{$in:searchCriteria.deliveryMode}}};
+            }
           }
 
           var courses = [];
@@ -97,16 +115,17 @@ if (Meteor.isClient) {
         setPaging: function(list)
         {
           if(list.length<MAX_COLUMN_PER_PAGE){
-            return [{page:1}];
+            return [{ page : 1 , selected: true}];
           }
           else {
             var page = (list.length)/MAX_COLUMN_PER_PAGE;
             var mod = (list.length)%MAX_COLUMN_PER_PAGE;
             page = (mod==0)?page:page+1;
+            var currentPage = Session.get("pageNum")?Session.get("pageNum"):1;
             var returnValue = [];
             for(var i = 0;i < page; i++)
             {
-              returnValue.push({page:i+1});
+              returnValue.push({ page : i+1 , selected : (currentPage == i+1?true: false)});
             }
             return returnValue;
           }

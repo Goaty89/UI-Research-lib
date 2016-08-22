@@ -9,32 +9,32 @@
                 <div class="{{styles.picture}}"><img src="{{courseImgUrl}}" class="{{styles.pictureSize}}"/></div>
                 <div class="{{styles.qualification}}">{{qualification}}</div>
                 <div class="{{styles.provider}} {{styles.cardText}}">{{providerLabel}}</div>
-                <div class="{{styles.studyMode}} {{styles.cardText}}">
+                <div class="{{styles.studyMode}} {{styles.cardText}} {{#with isBestChoiceArray studyMode 'studyMode'}}{{#if this}}{{styles.highlightBoder}}{{/if}}{{/with}}">
                   {{#with setArrayToString studyMode}}
                     {{this}}
                   {{/with}}
                 </div>
-                <div class="{{styles.deliveryMode}} {{styles.cardText}}">
+                <div class="{{styles.deliveryMode}} {{styles.cardText}} {{#with isBestChoiceArray deliveryMode 'deliveryMode'}}{{#if this}}{{styles.highlightBoder}}{{/if}}{{/with}}">
                   {{#with setArrayToString deliveryMode}}
                     {{this}}
                   {{/with}}
                 </div>
-                <div class="{{styles.courseDuration}} {{styles.cardText}}">
+                <div class="{{styles.courseDuration}} {{styles.cardText}} {{#with isBestChoice courseDurationMin 'durationMin'}}{{#if this}}{{styles.highlightBoder}}{{/if}}{{/with}}">
                   {{#with setCourseDuration courseDurationMax courseDurationMin}}
                     {{this}}
                   {{/with}}
                 </div>
-                <div class="{{styles.location}} {{styles.cardText}}">
+                <div class="{{styles.location}} {{styles.cardText}} {{#with isBestChoiceArray location 'location'}}{{#if this}}{{styles.highlightBoder}}{{/if}}{{/with}}">
                   {{#with setArrayToString location}}
                     {{this}}
                   {{/with}}
                 </div>
-                <div class="{{styles.intake}} {{styles.cardText}}">
+                <div class="{{styles.intake}} {{styles.cardText}} {{#with isBestChoiceArray intake 'intake'}}{{#if this}}{{styles.highlightBoder}}{{/if}}{{/with}}">
                   {{#with setArrayToString intake}}
                     {{this}}
                   {{/with}}
                 </div>
-                <div class="{{styles.careerOutcomes}} {{styles.cardText}}">
+                <div class="{{styles.careerOutcomes}} {{styles.cardText}} {{#with isBestChoiceArray careerOutcomes 'careerOutcomes'}}{{#if this}}{{styles.highlightBoder}}{{/if}}{{/with}}">
                   {{#with setArrayToList careerOutcomes}}
                     {{this}}
                   {{/with}}
