@@ -63,26 +63,35 @@ if (Meteor.isClient) {
         'submit #filter-form': function(e) {
             e.preventDefault();
 
-            var convertToButtonActivedList = function(index, val) {
-                var activedList = [];
-                activedList.push(val.value);
-                return activedList;
+            var eduLvlList = [];
+            var studyModeList = [];
+            var deliveryModeList = [];
+
+            var convertEduLvlToButtonActivedList = function(index, val) {
+                eduLvlList.push($(val).val());
             };
-            var eduLvlList = $('.btn-eduLvl.active').each(convertToButtonActivedList);
-            var studyModeList = $('.btn-studyMode.active').each(convertToButtonActivedList);
-            var deliveryModeList = $('.btn-deliveryMode.active').each(convertToButtonActivedList);
+            var convertStudyModeToButtonActivedList = function(index, val) {
+                studyModeList.push($(val).val());
+            };
+            var convertDeliveryModeToButtonActivedList = function(index, val) {
+                deliveryModeList.push($(val).val());
+            };
+            $.each($('.btn-eduLvl.active'),convertEduLvlToButtonActivedList);
+            $.each($('.btn-studyMode.active'),convertStudyModeToButtonActivedList);
+            $.each($('.btn-deliveryMode.active'),convertDeliveryModeToButtonActivedList);
 
             var serachItem = {};
             Session.set("searchCriteria", serachItem);
             serachItem.collegeName = $(".typeahead[name='txtCollege']").tagsinput('items');
             serachItem.courseCategory = e.target.cbxCourseCategory.value;
             serachItem.courseName = e.target.txtCourseName.value;
-            serachItem.eduLevelList = []; //eduLvlList;
+
             serachItem.location = e.target.txtLocation ? e.target.txtLocation.value : '';
             serachItem.courseDuration = Session.get("slider");
-            // serachItem.rating = $('#rating').data('userrating');
-            serachItem.studyMode = []; //studyModeList;
-            serachItem.deliveryMode = []; //deliveryModeList;
+            serachItem.studyMode = studyModeList;
+            serachItem.deliveryMode = deliveryModeList;
+            serachItem.eduLevel = eduLvlList;
+            
             serachItem.intakeMonth = e.target.cbxIntakeMonth.value;
             Session.set("searchCriteria", serachItem);
 
