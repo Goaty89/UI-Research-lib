@@ -53,7 +53,7 @@
   <div>
     {{#with setPaging allCoursesList}}
       {{#each this}}
-        <button id="btnPage" name="{{page}}" value="{{page}}" class="{{#with pageNumber page}}{{#if this}}{{styles.btnPageClicked}}{{else}}{{styles.btnPage}}{{/if}}{{/with}}" >{{page}}</button>
+        <button id="btnPage" name="{{page}}" value="{{page}}" class="{{#if selected}}{{styles.btnPageClicked}}{{else}}{{styles.btnPage}}{{/if}}" >{{page}}</button>
       {{/each}}
     {{/with}}
   </div>
