@@ -166,6 +166,58 @@ input[type="submit"].btnSearch {
     }
 }
 
+.picture {
+    height: 165px;
+}
+
+.qualification {
+    height: 80px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.provider {
+    height: 50px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.studyMode {
+    height: 50px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.deliveryMode {
+    height: 50px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.courseDuration {
+    height: 50px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.location {
+    height: 80px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.intake {
+    height: 80px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.careerOutcomes {
+    height: auto;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
 @media screen and (min-width:850px) {
     .asideNavWrapper {
         width: 300px;

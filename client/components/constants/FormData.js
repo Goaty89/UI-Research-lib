@@ -60,7 +60,7 @@ export const QUALIFICATION_LIST = [
 
 export const DELIVERY_MODE_LIST = [{
                 key: "ONLINE",
-                label: "Online Learning"
+                label: "E-learning"
             }, {
                 key: "LECTURER",
                 label: "Lecturer"

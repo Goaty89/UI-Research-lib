@@ -76,22 +76,21 @@ if (Meteor.isClient) {
             var convertDeliveryModeToButtonActivedList = function(index, val) {
                 deliveryModeList.push($(val).val());
             };
-            $.each($('.btn-eduLvl.active'),convertEduLvlToButtonActivedList);
-            $.each($('.btn-studyMode.active'),convertStudyModeToButtonActivedList);
-            $.each($('.btn-deliveryMode.active'),convertDeliveryModeToButtonActivedList);
+            $.each($('.btn-eduLvl.active'), convertEduLvlToButtonActivedList);
+            $.each($('.btn-studyMode.active'), convertStudyModeToButtonActivedList);
+            $.each($('.btn-deliveryMode.active'), convertDeliveryModeToButtonActivedList);
 
             var serachItem = {};
             Session.set("searchCriteria", serachItem);
             serachItem.collegeName = $(".typeahead[name='txtCollege']").tagsinput('items');
             serachItem.courseCategory = e.target.cbxCourseCategory.value;
             serachItem.courseName = e.target.txtCourseName.value;
-
             serachItem.location = e.target.txtLocation ? e.target.txtLocation.value : '';
             serachItem.courseDuration = Session.get("slider");
             serachItem.studyMode = studyModeList;
             serachItem.deliveryMode = deliveryModeList;
             serachItem.eduLevel = eduLvlList;
-            
+
             serachItem.intakeMonth = e.target.cbxIntakeMonth.value;
             Session.set("searchCriteria", serachItem);
 
