@@ -1,0 +1,12 @@
+.tr{
+  display: flex;
+  flex-direction: row;
+}
+.tdLabel{
+  padding:2px 10px;
+  font-weight: bold;
+  min-width: 80px;
+}
+.right{
+  float: right;
+}

@@ -132,5 +132,9 @@ Template.cardContainer.events({
   'click #learnMore':function(evt, res){
     evt.preventDefault();
     Router.go("detailPage",{},{query:"id="+evt.currentTarget.name});
+  },
+  "click #btnInquiry":function(evt,res){
+    evt.preventDefault();
+    $('#loginRegisterModal').modal('show');
   }
 });
