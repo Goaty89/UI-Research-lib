@@ -24,7 +24,6 @@ if (Meteor.isClient) {
         styles: styles,
         allCoursesList:function(){
           var searchCriteria = Session.get("searchCriteria");
-          console.log(searchCriteria);
 
           var searchObject = {};
           if(searchCriteria)
@@ -78,7 +77,7 @@ if (Meteor.isClient) {
         },
         courseList: function(courses) {
             var returnCourses = [];
-            var start = Session.get("pageNum")?Session.get("pageNum")-1:0;
+            var start = Session.get("pageNum")?((Session.get("pageNum")-1) * MAX_COLUMN_PER_PAGE):0;
 
             for(var course = start; course < courses.length;course++){
               if(returnCourses.length<MAX_COLUMN_PER_PAGE)
@@ -126,7 +125,7 @@ if (Meteor.isClient) {
             page = (mod==0)?page:page+1;
             var currentPage = Session.get("pageNum")?Session.get("pageNum"):1;
             var returnValue = [];
-            for(var i = 0;i < page; i++)
+            for(var i = 0;i < parseInt(page) ; i++)
             {
               returnValue.push({ page : i+1 , selected : (currentPage == i+1?true: false)});
             }

@@ -29,6 +29,7 @@ Meteor.methods({
             qualificationLevel: course.qualificationLevel,
             qualificationCategory: course.qualificationCategory,
             provider: course.provider,
+            providerLabel: course.providerLabel,
             location: course.location,
             keyTopic: course.keyTopic,
             careerOutcomes: course.careerOutcomes,
