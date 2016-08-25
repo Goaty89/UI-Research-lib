@@ -115,7 +115,9 @@
     </div>
 
     <div align="right">
-      <input type="button" id="btnInquiry" name="btnInquiry" value="Inquiry Now" class="{{styles.btnInquiry}}" style="border:0px;"/>
+      <button id="btnInquiry" name="{{_id}}" class="{{styles.btnInquiry}}" style="border:0px;">
+        <i class="fa fa-check" aria-hidden="true" style="margin-right:1em;"></i>Enquired
+      </button>
     </div>
     {{/each}}
 </template>

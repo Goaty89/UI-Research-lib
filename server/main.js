@@ -6,6 +6,10 @@ Meteor.publish('allCourses', function() {
     //  console.log("Publishing; ", Course.find());
     return Course.find();
 });
+Meteor.publish('userData', function() {
+    //  console.log("Publishing; ", Course.find());
+      return User_data.find();
+});
 
 
 Meteor.methods({
@@ -38,5 +42,18 @@ Meteor.methods({
             phoneNumber: userDetails.phone,
             qualificationLvl: userDetails.qualification
         });
+    },
+    insertInquiry: function(inquiry){
+      Inquiry.insert({
+        createdDate: new Date(),
+        createdBy: Meteor.userId(),
+        userDetailInfor: inquiry.userDetailInfor,
+        courseId:inquiry.courseId,
+        courseDetailInfor:inquiry.courseDetailInfor
+      });
+    },
+    updateInquiryCandidate: function(courseId,candId){
+      console.log(courseId+candId);
+      Course.update({"_id":courseId},{$push:{"inquiryList":{"createdBy":candId}}});
     }
 });
