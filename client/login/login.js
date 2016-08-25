@@ -17,7 +17,7 @@ if (Meteor.isClient) {
                 if (error) {
                     console.log(error.reason);
                 } else {
-                    Router.go("register");
+                    //Router.go("register");
                 }
             });
         },

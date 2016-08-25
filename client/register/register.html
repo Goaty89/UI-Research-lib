@@ -3,13 +3,23 @@
         <form clas="register">
           <div class="{{styles.topBorder}}">
           <div class="{{styles.tr}}">
-          <div class="{{styles.tdLabel}}">Full name: </div><div><input type="text" name="fname"/></div>
+            <p>By having a profile you can save your preferences and keep track of your inquiry status.</p>
+          </div>
+          <div class="{{styles.tr}}">
+          <div class="{{styles.tdLabel}}">First name: </div><div><input type="text" name="fname"/></div>
+          </div>
+          <div class="{{styles.tr}}">
+              <div class="{{styles.tdLabel}}">Last name: </div><div><input type="text" name="lname"/></div>
           </div>
           <div class="{{styles.tr}}">
           <div class="{{styles.tdLabel}}">Email: </div><div><input type="email" name="email"/></div>
           </div>
           <div class="{{styles.tr}}">
-          <div class="{{styles.tdLabel}}">Phone number: </div><div><input type="number" name="phoneNumber"/></div>
+          <div class="{{styles.tdLabel}}">Phone number: </div>
+              <div>
+                  <input type="number" name="phoneNumber"/>
+                  <small class="font-color-light-grey">The last 4 digit of your phone number will be used as password. You can reset your password later.</small>
+              </div>
           </div>
             {{> cbxQualificationForSignup}}
             <div class="{{styles.tr}}"><input type="submit" value="Register" data-dismiss="modal" class="{{styles.btnRegister}}"></div>

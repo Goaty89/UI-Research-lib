@@ -50,7 +50,7 @@ article{
 }
 
 :global(.btn){
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 :global(.btn-green){
@@ -84,6 +84,10 @@ article{
 
 .color-light-grey {
     background-color: #EFEFEF;
+}
+
+:global .font-color-light-grey{
+    color: #dadada;
 }
 :global(.active){
     display: block;

@@ -10,3 +10,17 @@ Template.header.events({
     $('#loginRegisterModal').modal('show');
   }
 });
+
+Template.signInSystem.onCreated(function() {
+
+});
+
+Template.signInSystem.helpers({
+    isGuest: function(){
+        console.log(Meteor.userId());
+        if(Meteor.userId()){
+            return User_data.findOne(Meteor.userId());
+        }
+        return "Guest";
+    }
+});
