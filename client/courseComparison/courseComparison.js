@@ -139,7 +139,7 @@ Template.cardContainer.helpers({
         }
       }
       else {
-        return new Handlebars.SafeString("<button id=\"btnInquiry\" name=\""+id+"\" class=\"_client_page_components_list__list__btnInquiry\" style=\"border:0px;\">Enquire</button>");;
+          return new Handlebars.SafeString("<button id=\"btnInquiry\" name=\""+id+"\" class=\"_client_page_components_list__list__btnInquiry\" style=\"border:0px;\">Enquire</button>");
       }
     }
 });
@@ -165,17 +165,25 @@ Template.cardContainer.events({
           }
           else {
             console.log("data been save");
-            Meteor.call("updateInquiryCandidate",evt.currentTarget.name,Meteor.userId(), function (error,results){if(error){console.log(error);}});
-
-            let compareList = Session.get("selectedCompareList");
-            if (compareList) {
-                let detailList = Course.find({
-                    _id: {
-                        $in: compareList
-                    }
-                }).fetch();
-                Session.set("courseDetails", detailList);
+            Meteor.call("updateInquiryCandidate",evt.currentTarget.name,Meteor.userId(), function (error,results){
+                if(error)
+            {
+                console.log(error);
             }
+            else{
+                    let compareList = Session.get("selectedCompareList");
+                    if (compareList) {
+                        let detailList = Course.find({
+                            _id: {
+                                $in: compareList
+                            }
+                        }).fetch();
+                        Session.set("courseDetails", detailList);
+                    }
+                }
+            });
+
+
           }
       });
     }
