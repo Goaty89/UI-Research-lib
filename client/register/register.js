@@ -14,6 +14,9 @@ if (Meteor.isClient) {
             return !Meteor.userId();
         }
     });
+    Template.cbxQualificationForSignup.helpers({
+      styles: styles
+    });
 
     Template.register.events({
         'submit form': function (event) {

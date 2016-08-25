@@ -12,15 +12,16 @@
           <div class="{{styles.tdLabel}}">Phone number: </div><div><input type="number" name="phoneNumber" style="height:30px;"/></div>
           </div>
             {{> cbxQualificationForSignup}}
-            <div class="{{styles.right}}"><input type="submit" value="Register" data-dismiss="modal"></div>
+            <div class="{{styles.right}}"><input type="submit" value="Register" data-dismiss="modal" class="{{styles.btnRegister}}"></div>
           </div>
         </form>
     {{/if}}
 </template>
 
 <template name="cbxQualificationForSignup">
-    <div class="">
-        <label for="cbxQualificationForSignup">Latest Qualification Level: </label>
+    <div class="{{styles.tr}}">
+      <div class="{{styles.tdLabel}}">Latest Qualification Level: </div>
+      <div>
         <select name="cbxQualificationForSignup" class="cbx-qualification-for-signup">
             {{#with List}}
                 {{#each List}}
@@ -28,5 +29,6 @@
                 {{/each}}
             {{/with}}
         </select>
+      </div>
     </div>
 </template>
