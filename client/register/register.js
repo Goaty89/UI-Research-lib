@@ -9,9 +9,13 @@ if (Meteor.isClient) {
     });
 
     Template.register.helpers({
+        styles: styles,
         notLogin: function(){
             return !Meteor.userId();
         }
+    });
+    Template.cbxQualificationForSignup.helpers({
+      styles: styles
     });
 
     Template.register.events({
