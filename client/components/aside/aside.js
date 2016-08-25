@@ -196,54 +196,60 @@ if (Meteor.isClient) {
     Template.filteredList.helpers({
         styles: styles,
         listFilter: function() {
+            var convertToArray = function(str) {
+                if (str) {
+                    return [str];
+                }
+                return null;
+            };
             var getSearchedCriteria = Session.get("searchCriteria");
             var displayCriteria = [{
                     title: 'provider',
                     key: getSearchedCriteria.collegeName,
-                    label: null
+                    label: getSearchedCriteria.collegeName
                 }, {
                     title: 'course category',
                     key: getSearchedCriteria.courseCategory,
-                    label: getSearchedCriteria.courseCategory
+                    label: convertToArray(getSearchedCriteria.courseCategory)
                 }, {
                     title: 'course name',
                     key: getSearchedCriteria.courseName,
-                    label: getSearchedCriteria.courseName
+                    label: convertToArray(getSearchedCriteria.courseName)
                 }, {
                     title: 'qualification',
-                    key: getSearchedCriteria.eduLevelList,
-                    label: null
+                    key: getSearchedCriteria.eduLevel,
+                    label: getSearchedCriteria.eduLevel
                 }, {
                     title: 'study mode',
                     key: getSearchedCriteria.studyMode,
-                    label: null
+                    label: getSearchedCriteria.studyMode
                 }, {
                     title: 'intake month',
                     key: getSearchedCriteria.intakeMonth,
-                    label: getSearchedCriteria.intakeMonth
+                    label: convertToArray(getSearchedCriteria.intakeMonth)
                 }, {
                     title: 'delivery mode',
                     key: getSearchedCriteria.deliveryMode,
-                    label: null
+                    label: getSearchedCriteria.deliveryMode
                 }, {
                     title: 'location',
                     key: getSearchedCriteria.location,
-                    label: getSearchedCriteria.location
+                    label: convertToArray(getSearchedCriteria.location)
                 }, {
-                    title: 'course dutation',
+                    title: 'course duration',
                     key: getSearchedCriteria.courseDuration,
-                    label: getSearchedCriteria.courseDuration
+                    label: convertToArray(getSearchedCriteria.courseDuration)
                 }
 
             ];
 
-            var lsFilter = [{
-                itemName: "Business Management"
-            }, {
-                itemName: "Sunway College"
-            }, {
-                itemName: "MMU"
-            }];
+            // var lsFilter = [{
+            //     itemName: "Business Management"
+            // }, {
+            //     itemName: "Sunway College"
+            // }, {
+            //     itemName: "MMU"
+            // }];
             return displayCriteria;
         }
     });
@@ -251,9 +257,28 @@ if (Meteor.isClient) {
     Template.filteredList.events({
         'click #btnDelete': function(evt, res) {
             evt.preventDefault();
+            debugger
+            var getSearchedCriteria = Session.get("searchCriteria");
+
             var Item = evt.currentTarget.parentNode;
-            var Parent = Item.parentNode;
-            Parent.removeChild(Item);
+            if (Item.previousElementSibling.tagName === "LABEL" && !Item.nextElementSibling) {
+                var Parent = Item.parentNode;
+                var result;
+                for (var prop in getSearchedCriteria) {
+                    if (Array.isArray(getSearchedCriteria[prop])) {
+                        getSearchedCriteria[prop] = getSearchedCriteria[prop].filter(
+                            function(value) {
+                                return (value !== Item.getAttribute("name"));
+                            }
+                        );
+                    } else if (getSearchedCriteria[prop] == Item.getAttribute("name")) {
+                        getSearchedCriteria[prop] = null;
+                    }
+                }
+                console.log("getSearchedCriteria: ", getSearchedCriteria, "Result: ", result);
+                //Parent.removeChild(Item);
+            }
+
         }
     });
 }

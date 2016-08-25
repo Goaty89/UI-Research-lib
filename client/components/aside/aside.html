@@ -43,10 +43,14 @@
         <div class="{{styles.filterFontFormat}}">
         {{#each listFilter}}
             {{#if label}}
-            <div class="{{styles.filterContent}}">
-                <label for="{{key}}">{{title}}</label>
-                <div name="{{key}}" class="{{styles.item}}" data-key="{{key}}">{{label}} <a href="#" class="{{styles.btnDelete}}" id="btnDelete">x</a></div>
-            </div>
+                 <div class="{{styles.filterContent}}">
+                    <label for="{{key}}">{{title}}</label>
+                    {{#each label}}
+                        {{#if this}}
+                        <div name="{{this}}" class="{{styles.item}}" data-key="{{this}}"> {{this}}<a href="#" class="{{styles.btnDelete}}" id="btnDelete">x</a></div>
+                        {{/if}}
+                    {{/each}}
+                </div>
             {{/if}}
         {{/each}}
         </div>
@@ -58,7 +62,7 @@
         {{#with buttonGroup}}
             <div class="{{styles.buttonGroup}}">
                 {{#each buttonGroup}}
-                    <button id="{{key}}" class="btn btn-studyMode btn-green" value="{{key}}">{{label}}</button>
+                    <button id="{{key}}" class="btn btn-studyMode btnActiveGreen" value="{{key}}">{{label}}</button>
                 {{/each}}
             </div>
         {{/with}}
@@ -82,7 +86,7 @@
         {{#with buttonGroup}}
             <div class="{{styles.buttonGroup}}">
                 {{#each buttonGroup}}
-                    <button id="{{key}}" class="btn btn-deliveryMode btn-green {{styles.btnDeliveryMode}}" value="{{key}}">{{label}}</button>
+                    <button id="{{key}}" class="btn btn-deliveryMode btnActiveGreen {{styles.btnDeliveryMode}}" value="{{key}}">{{label}}</button>
                 {{/each}}
             </div>
         {{/with}}
@@ -118,7 +122,7 @@
         {{#with buttonGroup}}
             <div class="{{styles.buttonGroup}}">
                 {{#each buttonGroup}}
-                    <button id="{{key}}" class="btn btn-eduLvl btn-green" value="{{key}}">{{label}}</button>
+                    <button id="{{key}}" class="btn btn-eduLvl btnActiveGreen" value="{{key}}">{{label}}</button>
                 {{/each}}
             </div>
         {{/with}}

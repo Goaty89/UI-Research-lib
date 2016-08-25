@@ -54,6 +54,17 @@ article{
     border-radius: 2px;
 }
 
+:global .btnActiveGreen.active,
+:global .btnActiveGreen:hover , 
+:global .btnActiveGreen:focus ,
+:global .btnActiveGreen:active,
+:global .btnActiveGreen:visited
+{
+    color: #fff;
+    background-color: #40740a;
+    border-color: #40740a;
+}
+
 .btn-green{
     color: #fff;
     background-color: #56a800;
