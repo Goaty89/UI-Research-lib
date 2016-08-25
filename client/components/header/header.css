@@ -13,8 +13,9 @@
   composes: btn from "../../style.css";
   composes: btn-green from "../../style.css";
   composes: redirect-to-add from "../../style.css";
-  padding: 10px 20px 10px 20px;
+  padding: 7px 15px 7px 15px;
   text-decoration: none;
+  margin-left: 1rem;
 }
 
 .nav {
@@ -44,6 +45,10 @@ nav a {
 .rightCorner{
     display: flex;
     margin: auto 0;
+}
+.rightCorner input{
+    height: 40px;
+    margin: 0;
 }
 @media screen and (min-width:850px) {
     nav {

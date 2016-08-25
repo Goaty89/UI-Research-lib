@@ -89,6 +89,14 @@ article{
 :global .font-color-light-grey{
     color: #dadada;
 }
+:global .dropdown-menu > li > a{
+    padding: 8px 20px
+}
+:global .dropdown-menu > li > a.font-color-red{
+    color: #d73d33;
+    font-weight: bolder;
+}
+
 :global(.active){
     display: block;
 }

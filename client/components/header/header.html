@@ -4,7 +4,8 @@
             <img src="/images/logo.png" alt="Jobstreet Education"/>
             <div class="{{styles.rightCorner}}">
                 <div class="{{styles.rightCorner}}">
-                    <a href="#" class="{{styles.btnSearch}}" id="ExpInterest" name="{{id}}">
+                    <input type="text" class="" />
+                    <a href="#" class="{{styles.btnSearch}}" id="btnSearch" name="{{id}}">
                         <span>search</span>
                     </a>
                 </div>
@@ -25,7 +26,7 @@
     </div>
 </template>
 <template name="signInSystem">
-    <div style="display: inline-table;">
+    <div style="display: inline-table; margin: auto;">
         {{#with isGuest}}
             <div class="dropdown">
                 Hi,<a id="mt-command-dd" class="dropdown-toggle" data-toggle="dropdown"> {{firstName}} <i class="fa fa-caret-down" aria-hidden="true"></i></a>
@@ -37,7 +38,7 @@
                         <a class="urlRedirect" role="menuitem" tabindex="-1" href="{{pathFor route='register'}}">Account Setting</a>
                     </li>
                     <li role="presentation">
-                        <a class="urlRedirect logout" role="menuitem" tabindex="-1" href="#">Sign Out</a>
+                        <a class="urlRedirect logout font-color-red" role="menuitem" tabindex="-1" href="#">Sign Out</a>
                     </li>
                 </ul>
             </div>
