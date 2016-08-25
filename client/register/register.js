@@ -3,9 +3,6 @@ import styles from './register.css';
 import { QUALIFICATION_LIST } from '../components/constants/FormData';
 if (Meteor.isClient) {
     Template.register.onRendered(function() {
-        if(Meteor.userId()){
-            Router.go('login');
-        }
     });
 
     Template.register.helpers({
@@ -21,10 +18,11 @@ if (Meteor.isClient) {
     Template.register.events({
         'submit form': function (event) {
             event.preventDefault();
-            var email = $('[name=email]').val();
-            var fname = $('[name=fname]').val();
-            var phone = $('[name=phoneNumber]').val();
-            var qualification = $('[name=cbxQualificationForSignup]').val();
+            var form = $(event.target);
+            var email = form.find('[name=email]').val();
+            var fname = form.find('[name=fname]').val();
+            var phone = form.find('[name=phoneNumber]').val();
+            var qualification = form.find('[name=cbxQualificationForSignup]').val();
             var password = (phone && !!(+phone.replace(/ /g,''))) ? phone.substr(phone.length-4): "";
             const userDetail = {
                 email: email,
@@ -52,8 +50,6 @@ if (Meteor.isClient) {
                                     console.log(error);
                                 }
                             });
-                            console.log("Logined!");
-                            Router.go('login');
                         }
                     });
                 }

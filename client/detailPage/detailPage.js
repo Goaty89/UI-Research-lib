@@ -51,6 +51,22 @@ if(Meteor.isClient)
           }
         });
         return returnString.toString();
+      },
+      checkInquiryList:function(id,inquiryList)
+      {
+        if(inquiryList)
+        {
+          var list = JSON.stringify(inquiryList);
+          if(list && list.indexOf(Meteor.userId())>0){
+            return new Handlebars.SafeString("<button name=\""+id+"\" class=\"_client_page_components_list__list__btnInquiryClicked\" style=\"border:0px;\"><i class=\"fa fa-check\" aria-hidden=\"true\" style=\"margin-right:1em;\"></i>Enquired</button>");;
+          }
+          else {
+            return new Handlebars.SafeString("<button id=\"btnInquiry\" name=\""+id+"\" class=\"_client_page_components_list__list__btnInquiry\" style=\"border:0px;\">Enquire</button>");
+          }
+        }
+        else {
+          return new Handlebars.SafeString("<button id=\"btnInquiry\" name=\""+id+"\" class=\"_client_page_components_list__list__btnInquiry\" style=\"border:0px;\">Enquire</button>");;
+        }
       }
 
   });
@@ -62,7 +78,38 @@ if(Meteor.isClient)
   Template.detailPage.events({
     "click #btnInquiry":function(evt,res){
       evt.preventDefault();
-      $('#loginRegisterModal').modal('show');
+      if(Meteor.userId())
+      {
+        var userData = User_data.find({createdBy:Meteor.userId()}).fetch();
+        var courseData = Course.find({_id:evt.currentTarget.name}).fetch();
+        var Inquiry = {};
+        Inquiry.userDetailInfor = userData;
+        Inquiry.courseId = evt.currentTarget.name;
+        Inquiry.courseDetailInfor = courseData;
+        Meteor.call("insertInquiry",Inquiry, function (error,results)
+        {
+            if(error){
+              console.log(error);
+            }
+            else {
+              console.log("data been save");
+              Meteor.call("updateInquiryCandidate",evt.currentTarget.name,Meteor.userId(), function (error,results){if(error){console.log(error);}});
+
+              let compareList = Session.get("selectedCompareList");
+              if (compareList) {
+                  let detailList = Course.find({
+                      _id: {
+                          $in: compareList
+                      }
+                  }).fetch();
+                  Session.set("courseDetails", detailList);
+              }
+            }
+        });
+      }
+      else {
+        $('#loginRegisterModal').modal('show');
+      }
     }
   });
 }

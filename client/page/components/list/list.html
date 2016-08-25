@@ -44,7 +44,9 @@
         </div>
       </div>
       <div>
-        <button id="btnInquiry" name="btnInquiry" value="Inquiry Now" class="{{styles.btnInquiry}}" style="width:250px;border:0px;">Inquiry Now</button>
+            {{#with checkInquiryList _id inquiryList}}
+                  {{this}}
+            {{/with}}
       </div>
     </div>
   {{/each}}
