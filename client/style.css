@@ -55,8 +55,7 @@ article{
 }
 
 :global .btnActiveGreen.active,
-:global .btnActiveGreen:hover , 
-:global .btnActiveGreen:focus ,
+:global .btnActiveGreen:hover ,
 :global .btnActiveGreen:active,
 :global .btnActiveGreen:visited
 {

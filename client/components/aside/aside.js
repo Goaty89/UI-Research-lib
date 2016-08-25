@@ -100,10 +100,14 @@ if (Meteor.isClient) {
 
             console.log(serachItem);
         },
-        'click [class$="btnBackToFilter"]': function(e) {
+        'click [class$="btnBackToFilter"]': function(e,template) {
             e.preventDefault();
             e.target.closest('[id^=tabContent]').classList.remove('active');
             document.getElementById("tabContent1").classList.add('active');
+            $("form .active").removeClass("active")
+            $('input.typeahead').tagsinput('refresh');
+            $('.typeahead').tagsinput('removeAll');
+            template.find("form").reset();
         }
     });
 
@@ -275,10 +279,23 @@ if (Meteor.isClient) {
                         getSearchedCriteria[prop] = null;
                     }
                 }
-                console.log("getSearchedCriteria: ", getSearchedCriteria, "Result: ", result);
                 //Parent.removeChild(Item);
             }
-
+            else{
+                for (var prop in getSearchedCriteria) {
+                    if (Array.isArray(getSearchedCriteria[prop])) {
+                        getSearchedCriteria[prop] = getSearchedCriteria[prop].filter(
+                            function(value) {
+                                return (value !== Item.getAttribute("name"));
+                            }
+                        );
+                    } else if (getSearchedCriteria[prop] == Item.getAttribute("name")) {
+                        getSearchedCriteria[prop] = null;
+                    }
+                }
+            }
+            Session.set("searchCriteria", getSearchedCriteria);
+            console.log("getSearchedCriteria: ", getSearchedCriteria);
         }
     });
 }
