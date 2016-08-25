@@ -78,4 +78,6 @@
 .checkPoint{
   position: absolute;
   z-index: 1;
+  float:right;
+  padding: 0.5em;
 }

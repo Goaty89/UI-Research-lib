@@ -3,7 +3,7 @@
         <!---->
         <div class="{{styles.tabs}}">
             <div id="tabContent1" class="active {{styles.tabContent}}">
-                
+
                 <div class="{{styles.title}}" align="center">Filter</div>
                 <form name="filter-form" id="filter-form">
                 <div class="{{styles.filterMainContainer}}">
@@ -113,7 +113,7 @@
 <template name="NameFilter">
     <div class="{{styles.filterContent}}">
         <label for="txtCourseName">COURSE NAME</label>
-        <input type="text" name="txtCourseName" />
+        <input type="text" class="typeahead" name="txtCourseName" />
     </div>
 </template>
 <template name="QualificationFilter">
@@ -131,7 +131,7 @@
 <template name="LocationFilter">
     <div class="{{styles.filterContent}} locationInput">
         <label for="txtLocation">LOCATION - CITY NEAR YOU</label>
-        <input type="text" name="txtLocation" />
+        <input type="text" class="typeahead" name="txtLocation" />
     </div>
 </template>
 <template name="CourseDurationFilter">

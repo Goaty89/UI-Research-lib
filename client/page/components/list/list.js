@@ -180,14 +180,14 @@ if (Meteor.isClient) {
               }
               Session.set("selectedCompareList", selectedCompareList);
               var Item = $(evt.currentTarget).find("i");
-              if (Item.hasClass("fa-circle-o")) {
-                  Item.removeClass("fa-circle-o");
+              if (Item.hasClass("fa-circle")) {
+                  Item.removeClass("fa-circle");
                   Item.addClass("fa-check-circle");
                   Item.css("color", "#4EB947");
               } else {
                   Item.removeClass("fa-check-circle");
-                  Item.addClass("fa-circle-o");
-                  Item.css("color", "#8A8A8A");
+                  Item.addClass("fa-circle");
+                  Item.css("color", "#FFFFFF");
               }
             }
         },

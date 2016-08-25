@@ -6,12 +6,14 @@
   composes: fieldText from "../../../style.css";
 }
 .btnCompare{
-  padding:2px 5px;
   background-color: #D6D6D6;
   color:#BFBFBF;
+  padding: 0.3em 1.5em;
+  border-radius: 4px;
 }
 .btnCompareGreen{
-  padding:2px 5px;
   background-color: #56a800;
   color:#fff;
+  padding: 0.3em 1.5em;
+  border-radius: 4px;
 }
