@@ -1,6 +1,7 @@
 .tr{
   display: flex;
   flex-direction: row;
+  margin-bottom: 10px;
 }
 .tdLabel{
   padding:2px 10px;
@@ -10,4 +11,7 @@
 }
 .right{
   float: right;
+}
+.topBorder{
+  margin-top: 10px;
 }
