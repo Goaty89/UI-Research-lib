@@ -1,6 +1,7 @@
 .asideNavWrapper {
     display: none;
     border-radius: 2% 2% 0 0;
+    min-height: 600px;
 }
 
 .asideNavWrapper input,
@@ -172,56 +173,76 @@ input[type="submit"].btnSearch {
 
 .qualification {
     height: 80px;
-    padding: 5px 5px;
+    padding: 1em 2em;
     margin: 5px 0px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .provider {
     height: 50px;
-    padding: 5px 5px;
+    padding: 1em 2em;
     margin: 5px 0px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .studyMode {
     height: 50px;
-    padding: 5px 5px;
+    padding: 1em 2em;
     margin: 5px 0px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .deliveryMode {
     height: 50px;
-    padding: 5px 5px;
+    padding: 1em 2em;
     margin: 5px 0px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .courseDuration {
     height: 50px;
-    padding: 5px 5px;
+    padding: 1em 2em;
     margin: 5px 0px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .location {
     height: 80px;
-    padding: 5px 5px;
+    padding: 1em 2em;
     margin: 5px 0px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .intake {
     height: 80px;
-    padding: 5px 5px;
+    padding: 1em 2em;
     margin: 5px 0px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .careerOutcomes {
     height: auto;
-    padding: 5px 5px;
+    padding: 1em 2em;
     margin: 5px 0px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.topBorder{
+  border-top: 1px solid #e1e1e1
 }
 
 @media screen and (min-width:850px) {
     .asideNavWrapper {
         width: 300px;
-        color: blue;
+        color: #545454;
         margin: 0px 0px 20px 0px;
         display: inline-block;
     }

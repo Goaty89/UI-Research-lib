@@ -24,26 +24,27 @@ if (Meteor.isClient) {
         styles: styles,
         allCoursesList:function(){
           var searchCriteria = Session.get("searchCriteria");
+          console.log(searchCriteria);
 
           var searchObject = {};
           if(searchCriteria)
           {
-            if(searchCriteria.collegeName.length>0){
+            if(searchCriteria.collegeName && searchCriteria.collegeName.length>0){
               searchObject.provider = {$in:searchCriteria.collegeName}
             }
-            if(searchCriteria.courseCategory != "ANY"){
+            if(searchCriteria.courseCategory && searchCriteria.courseCategory != "ANY"){
               searchObject.qualificationCategory = searchCriteria.courseCategory;
             }
-            if(searchCriteria.courseName != ""){
+            if(searchCriteria.courseName && searchCriteria.courseName != ""){
               searchObject.qualification = {$regex:searchCriteria.courseName.toUpperCase()};
             }
-            if(searchCriteria.location != ""){
+            if(searchCriteria.location && searchCriteria.location != ""){
               searchObject.location = {$elemMatch:{"text":{$regex:searchCriteria.location}}};
             }
-            if(searchCriteria.courseDuration != ""){
+            if(searchCriteria.courseDuration && searchCriteria.courseDuration != ""){
               searchObject.courseDurationMin = {$lte: (searchCriteria.courseDuration * 48) }
             }
-            if(searchCriteria.intakeMonth != "")
+            if(searchCriteria.intakeMonth && searchCriteria.intakeMonth != "")
             {
               var month = MONTH_MAP[searchCriteria.intakeMonth];
               searchObject.intake = {$elemMatch:{"month":MONTH_MAP[searchCriteria.intakeMonth]}};
@@ -54,15 +55,15 @@ if (Meteor.isClient) {
             serachItem.eduLevel = eduLvlList;
             { "qualificationLevel": { $in: ["MASTERS"] } }
             */
-            if(searchCriteria.eduLevel.length>0)
+            if(searchCriteria.eduLevel && searchCriteria.eduLevel.length>0)
             {
               searchObject.qualificationLevel = {$in:searchCriteria.eduLevel};
             }
-            if(searchCriteria.studyMode.length>0)
+            if(searchCriteria.studyMode && searchCriteria.studyMode.length>0)
             {
               searchObject.studyMode = {$elemMatch:{"value":{$in:searchCriteria.studyMode}}};
             }
-            if(searchCriteria.deliveryMode.length>0)
+            if(searchCriteria.deliveryMode && searchCriteria.deliveryMode.length>0)
             {
               searchObject.deliveryMode = {$elemMatch:{"value":{$in:searchCriteria.deliveryMode}}};
             }
