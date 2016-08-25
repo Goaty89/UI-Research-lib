@@ -30,4 +30,5 @@
   composes: redirect-to-add from "../style.css";
   text-decoration: none;
   border: 0px;
+  font-size: 14px;
 }

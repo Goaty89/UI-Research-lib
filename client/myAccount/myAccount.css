@@ -31,3 +31,14 @@
   margin-left: -15px;
   font-family: 'Raleway',Arial,Helvetica,sans serif;
 }
+
+.btnRegister{
+  composes: btn from "../style.css";
+  composes: btn-yellow from "../style.css";
+  composes: redirect-to-add from "../style.css";
+  text-decoration: none;
+  border: 0px;
+  margin-top: 1em;
+  text-size: 14px;
+  padding: 0.3em 1.5em;
+}

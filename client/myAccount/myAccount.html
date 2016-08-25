@@ -14,10 +14,10 @@
   </div>
   <div class="col-xs-12 {{styles.subTextBox}}">
     <div class="col-xs-6">
-      <input type="text" name="fname" style="height:30px;"/>
+      <input type="text" name="fname" style="height:30px;width:100%"/>
     </div>
     <div class="col-xs-6">
-      <input type="text" name="lname" style="height:30px;"/>
+      <input type="text" name="lname" style="height:30px;width:100%"/>
     </div>
   </div>
 
@@ -31,10 +31,10 @@
   </div>
   <div class="col-xs-12 {{styles.subTextBox}}">
     <div class="col-xs-6">
-      <input type="text" name="email" style="height:30px;"/>
+      <input type="text" name="email" style="height:30px;width:100%"/>
     </div>
     <div class="col-xs-6">
-      <input type="text" name="phoneNumber" style="height:30px;"/>
+      <input type="text" name="phoneNumber" style="height:30px;width:100%"/>
       <div class="col-xs-12 {{styles.tinyfont}}">
         The last 4 digits of your phone number will be used as Password. You can reset your password later
       </div>
@@ -51,11 +51,21 @@
   </div>
   <div class="col-xs-12 {{styles.subTextBox}}">
     <div class="col-xs-6">
-      <input type="text" name="latestQualificationLevel" style="height:30px;"/>
+      <select name="cbxQualificationForSignup" class="cbx-qualification-for-signup" style="height:30px;width:100%">
+          {{#with List}}
+              {{#each List}}
+                  <option value="{{key}}">{{label}}</option>
+              {{/each}}
+          {{/with}}
+      </select>
     </div>
     <div class="col-xs-6">
-      <input type="text" name="areaOfInterest" style="height:30px;"/>
+      <input type="text" name="areaOfInterest" style="height:30px;width:100%"/>
     </div>
+  </div>
+
+  <div class="col-xs-12" align="right">
+    <button class="{{styles.btnRegister}}">Update</button>
   </div>
 
 </template>
