@@ -1,0 +1,31 @@
+<template name="allCourseList">
+    <div class="col-xs-12">
+      <div class="col-xs-6 {{styles.rowMargin}}" align="left"><h1>Dashboard</h1></div>
+      <div class="col-xs-6" align="right" style="margin-top: 50px;"><a href="" id="addNewCourse">Add New Course</a></div>
+    </div>
+    <div class="col-xs-12 {{styles.mainTable}}">
+    <div class="col-xs-12 {{styles.topBorder}} {{styles.headerBorder}}">
+      <div class="col-xs-4">Course</div>
+      <div class="col-xs-4">Provider</div>
+      <div class="col-xs-3">Lead Count</div>
+      <div class="col-xs-1"></div>
+    </div>
+    {{#each allCourse}}
+    <div class="col-xs-12 {{styles.rowMargin}} {{styles.headerBorder}}">
+      <div class="col-xs-4">{{qualification}}</div>
+      <div class="col-xs-4">{{providerLabel}}</div>
+      <div class="col-xs-3"><a id="showLead" href="" name="{{_id}}">Lead List ({{#with countList inquiryList}}{{this}}{{/with}})</a></div>
+      <div class="col-xs-1"><i class="fa fa-trash-o {{styles.redColor}}" aria-hidden="true"></i></div>
+    </div>
+    <div class="col-xs-12" id="td_detail_{{_id}}" style="display:none">
+      {{#with getUserData inquiryList}}
+        {{#each this}}
+          <div class="col-xs-4">abc</div>
+          <div class="col-xs-4">{{phoneNumber}}</div>
+          <div class="col-xs-4">{{follower}}</div>
+        {{/each}}
+      {{/with}}
+    </div>
+    {{/each}}
+  </div>
+</template>

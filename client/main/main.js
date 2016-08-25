@@ -63,3 +63,14 @@ Router.route('register', function () {
   this.render('register');
   this.render('footer', {to: 'footer'});
 });
+
+Router.route('allCourseList', function () {
+  this.render('header', {to: 'header'});
+  this.render('allCourseList');
+  this.render('footer', {to: 'footer'});
+});
+Router.route('leadPage', function () {
+  this.render('header', {to: 'header'});
+  this.render('leadPage');
+  this.render('footer', {to: 'footer'});
+});
