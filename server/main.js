@@ -43,7 +43,9 @@ Meteor.methods({
             createdBy: Meteor.userId(),
             email: userDetails.email,
             phoneNumber: userDetails.phone,
-            qualificationLvl: userDetails.qualification
+            qualificationLvl: userDetails.qualification,
+            firstName: userDetails.firstName,
+            lastName: userDetails.lastName
         });
     },
     insertInquiry: function(inquiry){

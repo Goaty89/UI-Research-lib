@@ -2,10 +2,12 @@
     <div class="{{styles.headerWrapper}}">
         <div class="{{styles.topLayerContainer}}">
             <img src="/images/logo.png" alt="Jobstreet Education"/>
-            <div>
-                <a href="#" class="{{styles.btnSearch}}" id="ExpInterest" name="{{id}}">
-                    <span>search</span>
-                </a>
+            <div class="{{styles.rightCorner}}">
+                <div class="{{styles.rightCorner}}">
+                    <a href="#" class="{{styles.btnSearch}}" id="ExpInterest" name="{{id}}">
+                        <span>search</span>
+                    </a>
+                </div>
                 {{> signInSystem}}
             </div>
         </div>
@@ -23,7 +25,24 @@
     </div>
 </template>
 <template name="signInSystem">
-    <div>
-        Hello, guest! (<a href="" name="linkLogin" id="btnLogin">login</a>)
+    <div style="display: inline-table;">
+        {{#with isGuest}}
+            <div class="dropdown">
+                Hi,<a id="mt-command-dd" class="dropdown-toggle" data-toggle="dropdown"> {{firstName}} <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation">
+                        <a class="urlRedirect" role="menuitem" tabindex="-1" id="config-request-command" href="{{pathFor route='register'}}">My Enquiries</a>
+                    </li>
+                    <li role="presentation">
+                        <a class="urlRedirect" role="menuitem" tabindex="-1" href="{{pathFor route='register'}}">Account Setting</a>
+                    </li>
+                    <li role="presentation">
+                        <a class="urlRedirect logout" role="menuitem" tabindex="-1" href="#">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        {{else}}
+            <a href="" name="linkLogin" id="btnLogin">Login | Register</a>
+        {{/with}}
     </div>
 </template>

@@ -41,7 +41,10 @@ nav a {
     text-align: center;
     color: #fff;
 }
-
+.rightCorner{
+    display: flex;
+    margin: auto 0;
+}
 @media screen and (min-width:850px) {
     nav {
         flex-direction: row;
