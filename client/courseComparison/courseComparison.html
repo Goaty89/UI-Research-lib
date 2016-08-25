@@ -41,9 +41,9 @@
                 </div>
                 <div class="{{styles.learnMore}}">
                   <div align="left">
-                    <button id="btnInquiry" name="{{_id}}" class="{{styles.btnInquiry}}" style="border:0px;">
-                      <i class="fa fa-check" aria-hidden="true" style="margin-right:1em;"></i>Enquired
-                    </button>
+                    {{#with checkInquiryList _id inquiryList}}
+                          {{this}}
+                    {{/with}}
                   </div>
                   <div align="right" >
                     <a href="#" id="learnMore" name="{{_id}}">Learn More</a>
