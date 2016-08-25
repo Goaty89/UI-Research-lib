@@ -1,3 +1,5 @@
+import styles from './login.css';
+
 if (Meteor.isClient) {
     Template.login.helpers({
         isLogin: function() {

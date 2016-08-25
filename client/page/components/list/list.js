@@ -180,6 +180,10 @@ if (Meteor.isClient) {
         "click #btnPage":function(evt, res){
           evt.preventDefault();
           Session.set("pageNum",evt.currentTarget.name);
+        },
+        "click #btnInquiry":function(evt,res){
+          evt.preventDefault();
+          $('#loginRegisterModal').modal('show');
         }
     });
 

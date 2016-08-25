@@ -60,6 +60,9 @@ if(Meteor.isClient)
   });
 
   Template.detailPage.events({
-
+    "click #btnInquiry":function(evt,res){
+      evt.preventDefault();
+      $('#loginRegisterModal').modal('show');
+    }
   });
 }

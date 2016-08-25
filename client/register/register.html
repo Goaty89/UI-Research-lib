@@ -1,12 +1,17 @@
 <template name="register">
     {{#if notLogin}}
-        <h2>Register</h2>
         <form clas="register">
-            <p>Full name: <input type="text" name="fname"> </p>
-            <p>Email: <input type="email" name="email"></p>
-            <p>Phone number: <input type="number" name="phoneNumber"></p>
+          <div class="{{styles.tr}}">
+          <div class="{{styles.tdLabel}}">Full name: </div><div><input type="text" name="fname" style="height:30px;"/></div>
+          </div>
+          <div class="{{styles.tr}}">
+          <div class="{{styles.tdLabel}}">Email: </div><div><input type="email" name="email" style="height:30px;"/></div>
+          </div>
+          <div class="{{styles.tr}}">
+          <div class="{{styles.tdLabel}}">Phone number: </div><div><input type="number" name="phoneNumber" style="height:30px;"/></div>
+          </div>
             {{> cbxQualificationForSignup}}
-            <p><input type="submit" value="Register"></p>
+            <div class="{{styles.right}}"><input type="submit" value="Register" data-dismiss="modal"></div>
         </form>
     {{/if}}
 </template>

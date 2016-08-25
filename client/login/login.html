@@ -1,10 +1,15 @@
 <template name="login">
     {{#unless isLogin}}
-    <h1>Login page</h1>
     <form class="login">
-        <p>Email: <input type="email" name="email"></p>
-        <p>Password: <input type="password" name="password"></p>
-        <p><input type="submit" value="Login"></p>
+      <div>
+      <div class="{{styles.tr}}">
+        <div class="{{styles.tdLabel}}">Email: </div><div><input type="email" name="email" style="height:30px;"/></div>
+      </div>
+      <div class="{{styles.tr}}">
+        <div class="{{styles.tdLabel}}">Password: </div><div><input type="password" name="password" style="height:30px;"/></div>
+      </div>
+        <div class="{{styles.right}}"><input type="submit" value="Login" data-dismiss="modal"></div>
+      </div>
     </form>
     {{else}}
         Hi <a href="#" class="logout">Logout</a>

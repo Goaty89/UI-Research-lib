@@ -1,3 +1,5 @@
+import styles from './register.css';
+
 import { QUALIFICATION_LIST } from '../components/constants/FormData';
 if (Meteor.isClient) {
     Template.register.onRendered(function() {

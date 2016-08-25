@@ -8,6 +8,11 @@ Template.mainLayout.helpers({
   styles: styles
 });
 
+Template.loginRegisterTemplate.rendered = function(){
+  if(window.location.hash)
+    $('a[href="'+window.location.hash+'"]').tab('show');
+}
+
 Router.configure({
   layoutTemplate: 'mainLayout',
   notFoundTemplate: 'notFound',

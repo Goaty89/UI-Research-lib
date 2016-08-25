@@ -30,10 +30,42 @@
       </aside>
       <article>
         {{> yield}}
+        {{> loginRegisterTemplate}}
       </article>
     </main>
     <footer>
       {{> yield "footer"}}
     </footer>
+  </div>
+</template>
+
+<template name="loginRegisterTemplate">
+  <div class="modal fade" id="loginRegisterModal" style="bottom:10%;left:50%;right:50%;width:550px;">
+      <div class="modal-content" style="height:100%">
+
+        <!--div class="modal-header" style="height:10%">
+          <h4 class="modal-title">Login / Register</h4>
+        </div-->
+
+        <div class="modal-body" style="height:100%">
+          <ul class="nav nav-tabs">
+            <li class='active'><a href="#login" data-toggle="tab">Login</a></li>
+            <li><a href="#register" data-toggle="tab">Register</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="login">
+              {{> login}}
+            </div>
+            <div class="tab-pane" id="register">
+              {{> register}}
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer" style="height:10%">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+
+      </div>
   </div>
 </template>
