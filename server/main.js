@@ -10,7 +10,10 @@ Meteor.publish('userData', function() {
     //  console.log("Publishing; ", Course.find());
       return User_data.find();
 });
-
+Meteor.publish('Enquiries', function() {
+    //  console.log("Publishing; ", Course.find());
+      return Inquiry.find();
+});
 
 Meteor.methods({
     insertCourse: function(course) {

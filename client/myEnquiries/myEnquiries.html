@@ -1,0 +1,25 @@
+<template name="myEnquiries">
+    {{> cardEnquiries}}
+</template>
+
+<template name="cardEnquiries">
+  <div class="{{styles.title}}"><h3>My Enquiries</h3></div>
+  <div class="col-xs-12 {{styles.subTitle}}">
+    <div class="col-xs-8">
+      COURSES
+    </div>
+    <div class="col-xs-4">
+      ENQUIRED ON
+    </div>
+  </div>
+  {{#each inquiryList}}
+  <div class="col-xs-12 {{styles.row}}">
+    <div class="col-xs-8">
+      <a href="" id="btnCourseName" name="{{courseId}}">{{courseName}}</a>
+    </div>
+    <div class="col-xs-4">
+      {{createdDate}}
+    </div>
+  </div>
+  {{/each}}
+</template>

@@ -1,0 +1,248 @@
+.asideNavWrapper {
+    display: none;
+    border-radius: 2% 2% 0 0;
+    min-height: 600px;
+}
+
+.asideNavWrapper input,
+.asideNavWrapper select {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.title {
+    composes: color-deep-blue from "../../style.css";
+    color: white;
+    padding: 5px 0px 5px 0px;
+    font-weight: 500;
+    font-family: 'Raleway',Arial,Helvetica,sans serif;
+}
+
+.filterMainContainer {
+    composes: color-light-grey from "../../style.css";
+}
+
+.filterContent {
+    padding: 0.6rem 1rem 0;
+    color: #1E3E93;
+    font-family: 'Raleway',Arial,Helvetica,sans serif;
+    font-weight: 600;
+    font-size: smaller;
+}
+
+.filterContent:last-child {
+    padding-bottom: 0.6rem;
+}
+
+.btnSearch {
+    composes: color-deep-yellow from "../../style.css";
+    color: #69684A;
+    padding: 1em 0;
+    font-weight: 600;
+}
+
+input[type="submit"].btnSearch {
+    width: 100%;
+}
+
+.filterFontFormat {
+    composes: bottomSpacing from "../../style.css";
+    composes: font from "../../style.css";
+    composes: color-light-grey from "../../style.css";
+    overflow: hidden;
+}
+
+.btnDelete {
+    cursor: pointer;
+    text-decoration: none;
+    color: #797979;
+    padding-left: 10px;
+}
+
+.item {
+    composes: font from "../../style.css";
+    float: left;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    border: 1px solid #A1A1A1;
+    padding: 2px 14px;
+    margin-right: 10px;
+    margin-bottom: 6px;
+}
+
+.tabs {
+    max-width: 90%;
+    float: none;
+    list-style: none;
+    padding: 0;
+    margin: 0px auto;
+}
+
+.tabs:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.tabs input[type=radio] {
+    display: none;
+}
+
+.tabs .tabsLabel {
+    float: left;
+    width: 50%;
+    font-size: 30px;
+    box-shadow: inset 0 4px #ccc;
+    text-align: center;
+    color: #ccc;
+}
+
+.tabs label {
+    display: block;
+    font-weight: normal;
+    text-decoration: none;
+    line-height: 2;
+    cursor: pointer;
+    border-bottom: 4px solid #ccc;
+    -webkit-transition: all 0.5s;
+    /* Safari 3.1 to 6.0 */
+    transition: all 0.5s;
+}
+
+.tabs label span {
+    display: none;
+}
+
+.tabs label i {
+    padding: 5px;
+    margin-right: 0;
+}
+
+.tabs label:hover {
+    color: #3498db;
+    box-shadow: inset 0 4px #3498db;
+    border-bottom: 4px solid #3498db;
+}
+
+.tabContent {
+    display: none;
+    width: 100%;
+    float: left;
+    padding: 15px 0;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.tabContent * {
+    -webkit-animation: scale 0.7s ease-in-out;
+    -moz-animation: scale 0.7s ease-in-out;
+    animation: scale 0.7s ease-in-out;
+}
+
+.tabs [id^="tab"]:checked + label {
+    background: #FFF;
+    box-shadow: inset 0 4px #3498db;
+    border-bottom: 4px solid #3498db;
+    color: #3498db;
+}
+
+.tabs [id="tab1"]:checked ~ #tabContent1,
+.tabs [id="tab2"]:checked ~ #tabContent2,
+.tabs [id="tab3"]:checked ~ #tabContent3 {
+    display: block;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.01);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.picture {
+    height: 165px;
+}
+
+.qualification {
+    height: 80px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.provider {
+    height: 50px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.studyMode {
+    height: 50px;
+    padding: 1em 2em;
+    margin: 5px 0px;
+}
+.topBorder{
+  border-top: 1px solid #e1e1e1
+}
+
+.deliveryMode {
+    height: 50px;
+    padding: 1em 2em;
+    margin: 5px 0px;
+}
+
+.courseDuration {
+    height: 50px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.location {
+    height: 80px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.intake {
+    height: 80px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+.careerOutcomes {
+    height: auto;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+@media screen and (min-width:850px) {
+    .asideNavWrapper {
+        width: 300px;
+        color: #545454;
+        margin: 0px 0px 20px 0px;
+        display: inline-block;
+    }
+    .buttonGroup {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .buttonGroup button.btnDeliveryMode {
+        margin: 5px 0px 5px 5%;
+        padding: .5rem .5rem;
+    }
+    .buttonGroup button {
+        margin: 5px 0px 5px 5%;
+        padding: .5rem .5rem;
+    }
+    .buttonGroup button:nth-child(3n+1) {
+        margin-left: 0px;
+    }
+}

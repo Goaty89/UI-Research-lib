@@ -1,0 +1,61 @@
+<template name="myAccount">
+    {{> cardAccount}}
+</template>
+
+<template name="cardAccount">
+  <div class="{{styles.title}}"><h3>My Account</h3></div>
+  <div class="col-xs-12 {{styles.subTitle}}">
+    <div class="col-xs-6">
+      First Name*
+    </div>
+    <div class="col-xs-6">
+      Last Name*
+    </div>
+  </div>
+  <div class="col-xs-12 {{styles.subTextBox}}">
+    <div class="col-xs-6">
+      <input type="text" name="fname" style="height:30px;"/>
+    </div>
+    <div class="col-xs-6">
+      <input type="text" name="lname" style="height:30px;"/>
+    </div>
+  </div>
+
+  <div class="col-xs-12 {{styles.subTitle}}">
+    <div class="col-xs-6">
+      Email*
+    </div>
+    <div class="col-xs-6">
+      Phone Number*
+    </div>
+  </div>
+  <div class="col-xs-12 {{styles.subTextBox}}">
+    <div class="col-xs-6">
+      <input type="text" name="email" style="height:30px;"/>
+    </div>
+    <div class="col-xs-6">
+      <input type="text" name="phoneNumber" style="height:30px;"/>
+      <div class="col-xs-12 {{styles.tinyfont}}">
+        The last 4 digits of your phone number will be used as Password. You can reset your password later
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 {{styles.subTitle}}">
+    <div class="col-xs-6">
+      Latest Qualification Level
+    </div>
+    <div class="col-xs-6">
+      Area of Interest
+    </div>
+  </div>
+  <div class="col-xs-12 {{styles.subTextBox}}">
+    <div class="col-xs-6">
+      <input type="text" name="latestQualificationLevel" style="height:30px;"/>
+    </div>
+    <div class="col-xs-6">
+      <input type="text" name="areaOfInterest" style="height:30px;"/>
+    </div>
+  </div>
+
+</template>

@@ -74,3 +74,17 @@ Router.route('leadPage', function () {
   this.render('leadPage');
   this.render('footer', {to: 'footer'});
 });
+
+Router.route('MyEnquiries', function () {
+  this.render('header', {to: 'header'});
+  this.render('myEnquiriesAside', {to: 'aside'});
+  this.render('myEnquiries');
+  this.render('footer', {to: 'footer'});
+});
+
+Router.route('AccountDetail', function () {
+  this.render('header', {to: 'header'});
+  this.render('myEnquiriesAside', {to: 'aside'});
+  this.render('myAccount');
+  this.render('footer', {to: 'footer'});
+});
