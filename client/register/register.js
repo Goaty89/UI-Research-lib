@@ -9,6 +9,7 @@ if (Meteor.isClient) {
     });
 
     Template.register.helpers({
+        styles: styles,
         notLogin: function(){
             return !Meteor.userId();
         }
