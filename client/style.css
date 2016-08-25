@@ -53,7 +53,9 @@ article{
 .btn{
     border-radius: 5px;
 }
-
+:global .dropdown-toggle{
+    cursor: pointer;
+}
 :global .btnActiveGreen.active,
 :global .btnActiveGreen:hover ,
 :global .btnActiveGreen:active,

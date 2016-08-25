@@ -18,12 +18,9 @@ if (Meteor.isClient) {
                 if (error) {
                     console.log(error.reason);
                 } else {
+                    $('#loginRegisterModal').modal('hide');
                 }
             });
-        },
-        'click .logout': function(event){
-            event.preventDefault();
-            Meteor.logout();
         }
     });
 }

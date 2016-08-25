@@ -12,15 +12,28 @@ Template.header.events({
 });
 
 Template.signInSystem.onCreated(function() {
-
+    Meteor.subscribe('userData', function() {
+    });
 });
 
 Template.signInSystem.helpers({
     isGuest: function(){
-        console.log(Meteor.userId());
         if(Meteor.userId()){
-            return User_data.findOne(Meteor.userId());
+            return User_data.findOne({createdBy: Meteor.userId()});
         }
-        return "Guest";
+        return null;
+    }
+});
+
+Template.signInSystem.events({
+   'click #mt-command-dd': function (evt){
+       $(evt.target.parentNode.parentElement).find(".dropdown-menu").toggle();
+   },
+    'click .urlRedirect': function (evt){
+        $(evt.target.parentNode.parentElement).toggle();
+    },
+    'click .logout': function(event){
+        event.preventDefault();
+        Meteor.logout();
     }
 });
