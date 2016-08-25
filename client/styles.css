@@ -60,12 +60,10 @@ article{
 }
 
 .btn-green:hover,.btn-green:focus{
-
     color: #fff;
     background-color: #40740a;
     border-color: #40740a;
 }
-
 .redirect-to-add{
   margin-right: 1rem;
 }
@@ -89,6 +87,23 @@ article{
 }
 :global(.active){
     display: block;
+}
+
+:global .tab-content-loginSystem{
+    border: 1px solid #ddd;
+    border-top: 0;
+}
+:global .nav-tabs > li > a,
+:global .nav-pills > li > a {
+    margin-right:0;
+}
+
+:global .loginSystem li{
+    width: 50%;
+}
+
+:global .modal-body{
+    max-height:465px;
 }
 @media screen and (min-width:600px) {
     body {

@@ -76,7 +76,17 @@ article{
     background-color: #40740a;
     border-color: #40740a;
 }
+.btn-yellow{
+    color: #000;
+    background-color: #fef200;
+    border-color: #fef200;
+}
 
+.btn-yellow:hover,.btn-yellow:focus{
+    color: #fff;
+    background-color: #d6cd03;
+    border-color: #d6cd03;
+}
 .redirect-to-add{
   margin-right: 1rem;
 }
